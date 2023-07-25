@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { ZodError } from 'zod'
 
 import { FeedbackService } from '@/server/FeedbackService'
-import { ServerException } from '@/server/ServerException'
-import { validateFeedbackForm } from '@/utils/validateFeedbackForm'
+import { feedbackSchema } from '@/utils/schemas/feedback.schema'
 
 const handler = async (
 	req: NextApiRequest,
@@ -16,13 +16,14 @@ const handler = async (
 	}
 
 	try {
-		const feedback = validateFeedbackForm(req.body)
+		const feedback = feedbackSchema.parse(req.body)
 		await FeedbackService.sendFeedback(feedback)
 
 		res.status(200).end()
 	} catch (error) {
-		if (error instanceof ServerException) {
-			res.status(error.status).json({ message: error.message })
+		if (error instanceof ZodError) {
+			const errorMessage = error.errors[0].message
+			res.status(400).json({ message: errorMessage })
 		} else {
 			res.status(500).json({ message: 'Внутренняя ошибка сервера' })
 		}
