@@ -7,12 +7,6 @@ export class ServerException extends Error {
 	}
 }
 
-export class BadRequest extends ServerException {
-	constructor(message: string) {
-		super(400, message)
-	}
-}
-
 export class NotFound extends ServerException {
 	constructor(message: string) {
 		super(404, message)
