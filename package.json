@@ -9,6 +9,7 @@
     "lint": "eslint src --ext ts,tsx --fix"
   },
   "dependencies": {
+    "@sentry/nextjs": "^7.60.0",
     "@tanstack/react-query": "^4.29.17",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
