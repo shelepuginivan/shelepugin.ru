@@ -42,7 +42,6 @@ const FeedbackForm: FC = () => {
 				className={`${styles.form} ${robotoFlex.className}`}
 			>
 				<Input
-					className={robotoFlex.className}
 					name='firstname'
 					id='firstname'
 					type='text'
@@ -50,7 +49,6 @@ const FeedbackForm: FC = () => {
 					maxLength={FIRSTNAME_MAX_LENGTH}
 				/>
 				<Input
-					className={robotoFlex.className}
 					name='lastname'
 					id='lastname'
 					type='text'
@@ -58,7 +56,6 @@ const FeedbackForm: FC = () => {
 					maxLength={LASTNAME_MAX_LENGTH}
 				/>
 				<Input
-					className={robotoFlex.className}
 					id='email'
 					name='email'
 					type='email'
