@@ -41,7 +41,10 @@ const Social: FC = () => {
 					</li>
 				</ul>
 			</div>
-			<Image src={phone} alt=''/>
+			<Image
+				src={phone}
+				alt='Old phone'
+			/>
 		</div>
 	)
 }
