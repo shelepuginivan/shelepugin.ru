@@ -20,7 +20,7 @@ const ShareMenu: FC<{slug: string}> = ({ slug }) => {
 	const [header, setHeader] = useState('Поделиться')
 	const [isSuccess, setIsSuccess] = useState<boolean | null>(null)
 	const [message, setMessage] = useState('')
-	
+
 	const shareLink = `${getHost()}/blog/${slug}`
 
 	const clipUrl = useCallback(async () => {
@@ -57,15 +57,14 @@ const ShareMenu: FC<{slug: string}> = ({ slug }) => {
 			setHeader('Успех!')
 			setMessage('Спасибо, что поделились статьёй')
 		} catch (error) {
-			if (error instanceof DOMException) {
-				if (
-					error.code !== DOMException.ABORT_ERR &&
-					error.name !== 'ABORT_ERR'
-				) {
-					setIsSuccess(false)
-					setHeader('Ошибка!')
-					setMessage('Не удалось поделиться статьёй')
-				}
+			if (
+				error instanceof DOMException &&
+				error.code !== DOMException.ABORT_ERR &&
+				error.name !== 'ABORT_ERR'
+			) {
+				setIsSuccess(false)
+				setHeader('Ошибка!')
+				setMessage('Не удалось поделиться статьёй')
 			}
 		}
 	}, [shareLink])
