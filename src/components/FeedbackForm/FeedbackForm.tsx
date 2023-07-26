@@ -47,6 +47,7 @@ const FeedbackForm: FC = () => {
 					type='text'
 					placeholder='Имя'
 					maxLength={FIRSTNAME_MAX_LENGTH}
+					required
 				/>
 				<Input
 					name='lastname'
@@ -54,6 +55,7 @@ const FeedbackForm: FC = () => {
 					type='text'
 					placeholder='Фамилия'
 					maxLength={LASTNAME_MAX_LENGTH}
+					required
 				/>
 				<Input
 					id='email'
@@ -61,6 +63,7 @@ const FeedbackForm: FC = () => {
 					type='email'
 					placeholder='Email'
 					maxLength={EMAIL_MAX_LENGTH}
+					required
 				/>
 				<TextArea
 					className={robotoFlex.className}
@@ -68,6 +71,7 @@ const FeedbackForm: FC = () => {
 					name='message'
 					placeholder={`Введите ваше сообщение (до ${FEEDBACK_MAX_LENGTH} символов)`}
 					maxLength={FEEDBACK_MAX_LENGTH}
+					required
 				/>
 				<Button type='submit'>Отправить</Button>
 			</form>
