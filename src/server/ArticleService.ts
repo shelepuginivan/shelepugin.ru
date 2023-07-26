@@ -15,23 +15,18 @@ export class ArticleService {
 		try {
 			const database = client.db(process.env.MONGO_DB_NAME)
 			const collection = await database.collection('article')
-			const allArticles = await collection
-				.find()
-				.sort('publicationTime', 'descending')
-				.skip((page - 1) * articlesPerPage)
-				.limit(articlesPerPage)
-				.toArray() as WithId<Article>[]
 
-			return allArticles.map(article => {
-				const { title, slug, publicationTime, previewUrl } = article
-
-				return {
-					title,
-					slug,
-					publicationTime,
-					previewUrl
-				}
-			})
+			return await collection
+				.aggregate([
+					{ $sort: { publicationTime: -1 } },
+					{ $skip: (page - 1) * articlesPerPage },
+					{ $limit: articlesPerPage },
+					{ $project: {
+						_id: 0,
+						text: 0
+					} }
+				])
+				.toArray() as Omit<Article, 'text'>[]
 		} finally {
 			await client.close()
 		}
