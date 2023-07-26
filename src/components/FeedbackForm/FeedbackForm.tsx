@@ -21,16 +21,16 @@ const FeedbackForm: FC = () => {
 
 	const onSubmit = async (event: FormEvent) => {
 		event.preventDefault()
-		
+
 		const form = event.target as unknown as Record<keyof Feedback, HTMLInputElement>
-		
+
 		const feedback: Feedback = {
 			firstname: form.firstname.value,
 			lastname: form.lastname.value,
 			email: form.email.value,
 			message: form.message.value
 		}
-		
+
 		await submitFeedback(feedback)
 	}
 
