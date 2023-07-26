@@ -33,7 +33,7 @@ export const getServerSideProps = async ({ params }: GetServerSidePropsContext) 
 			notFound: true
 		}
 	}
-	
+
 	try {
 		const article = await fetchArticleBySlug(slug)
 
@@ -48,7 +48,7 @@ export const getServerSideProps = async ({ params }: GetServerSidePropsContext) 
 				notFound: true
 			}
 		}
-		
+
 		return {
 			props: {
 				errorMessage: errorMessage(error)

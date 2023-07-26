@@ -41,14 +41,14 @@ export class ArticleService {
 		if (!process.env.MONGO_URI || !process.env.MONGO_DB_NAME) {
 			throw new InternalServerError('Внутренняя ошибка сервера')
 		}
-		
+
 		const client = new MongoClient(process.env.MONGO_URI)
 		await client.connect()
 
 		try {
 			const database = client.db(process.env.MONGO_DB_NAME)
 			const article = await database.collection('article').findOne({ slug: articleSlug }) as WithId<Article> | null
-			
+
 			if (!article)
 				throw new NotFound('Статья не найдена')
 

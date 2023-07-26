@@ -13,7 +13,7 @@ const GalleryCategoriesList: FC = () => {
 	const [showSecret, setShowSecret] = useState<boolean>(false)
 	const { data: categories, error, isLoading } = useGalleryCategoriesQuery()
 	const secretCode = useRef('')
-	
+
 	const secretCodeEnter = (event: KeyboardEvent) => {
 		switch (event.key) {
 		case 'Enter':

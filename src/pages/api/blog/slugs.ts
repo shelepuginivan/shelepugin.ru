@@ -6,7 +6,7 @@ import { ServerException } from '@/server/ServerException'
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
 		const allSlugs = await ArticleService.getSlugs()
-		
+
 		res.status(200).json(allSlugs)
 	} catch (error) {
 		if (error instanceof ServerException) {

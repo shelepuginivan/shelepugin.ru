@@ -28,7 +28,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 			res.status(500).json({ message: 'Внутренняя ошибка сервера' })
 		}
 	}
-	
 }
 
 export default handler

@@ -12,11 +12,11 @@ import styles from './projectsList.module.sass'
 
 const ProjectsList: FC = () => {
 	const { data, error, fetchNextPage, hasNextPage, isLoading } = useProjectsInfiniteQuery()
-	
+
 	if (error) {
 		return <ErrorMessage message={errorMessage(error)} />
 	}
-	
+
 	if (isLoading) {
 		return <Center><Loader/></Center>
 	}

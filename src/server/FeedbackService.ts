@@ -10,11 +10,11 @@ export class FeedbackService {
 		}
 
 		const client = new MongoClient(process.env.MONGO_URI)
-		
+
 		try {
 			const database = client.db(process.env.MONGO_DB_NAME)
 			const collection = database.collection('feedback')
-			
+
 			await collection.insertOne(feedback)
 		} finally {
 			await client.close()

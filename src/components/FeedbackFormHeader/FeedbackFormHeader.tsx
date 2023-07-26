@@ -25,7 +25,7 @@ const FeedbackFormHeader: FC<PropsType> = ({ error, status }) => {
 		default: return 'Форма обратной связи'
 		}
 	})()
-	
+
 	return (
 		<div className={styles.feedbackFormHeader}>
 			<h1
