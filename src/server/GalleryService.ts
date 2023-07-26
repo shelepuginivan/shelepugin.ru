@@ -1,6 +1,7 @@
 import { MongoClient, WithId } from 'mongodb'
 
 import { InternalServerError, NotFound } from '@/server/ServerException'
+import { GalleryCategory } from '@/utils/types/GalleryCategory'
 import { Image } from '@/utils/types/Image'
 
 export class GalleryService {
@@ -16,6 +17,38 @@ export class GalleryService {
 
 		try {
 			return await database.collection('image').distinct('category')
+		} finally {
+			await client.close()
+		}
+	}
+
+	static async getCategoriesWithPreviews(): Promise<GalleryCategory[]> {
+		if (!process.env.MONGO_URI || !process.env.MONGO_DB_NAME) {
+			throw new InternalServerError('Внутренняя ошибка сервера')
+		}
+
+		const client = new MongoClient(process.env.MONGO_URI)
+		await client.connect()
+
+		try {
+			const database = client.db(process.env.MONGO_DB_NAME)
+			const collection = database.collection('image')
+
+			return await collection
+				.aggregate([
+					{ $group: { _id: '$category', images: { $push: '$url' } } },
+					{ $project: {
+						name: '$_id',
+						_id: 0,
+						previewUrl: {
+							$arrayElemAt: [
+								'$images',
+								{ $floor: { $multiply: [{ $size: '$images' }, Math.random()] } }
+							]
+						}
+					} }
+				])
+				.toArray() as GalleryCategory[]
 		} finally {
 			await client.close()
 		}
@@ -48,43 +81,6 @@ export class GalleryService {
 			}
 
 			return galleryItems.map(item => item.url)
-		} finally {
-			await client.close()
-		}
-	}
-
-	static async getRandomImageUrlByCategory(category: string): Promise<string> {
-		if (!process.env.MONGO_URI || !process.env.MONGO_DB_NAME) {
-			throw new InternalServerError('Внутренняя ошибка сервера')
-		}
-
-		const client = new MongoClient(process.env.MONGO_URI)
-		await client.connect()
-
-		try {
-			const database = client.db(process.env.MONGO_DB_NAME)
-			const collection = database.collection('image')
-
-			const image = collection.aggregate([
-				{
-					$match: {
-						category
-					}
-				},
-				{
-					$sample: {
-						size: 1
-					}
-				}
-			])
-
-			const imageDocument = await image.next()
-
-			if (!imageDocument || !imageDocument.url) {
-				throw new NotFound(`категория ${category} не найдена`)
-			}
-
-			return imageDocument.url
 		} finally {
 			await client.close()
 		}
