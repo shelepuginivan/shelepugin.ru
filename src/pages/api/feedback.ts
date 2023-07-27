@@ -8,13 +8,6 @@ const handler = async (
 	req: NextApiRequest,
 	res: NextApiResponse
 ) => {
-	if (req.method !== 'POST') {
-		res.status(405).json({
-			message: 'Неверный метод запроса'
-		})
-		return
-	}
-
 	try {
 		const feedback = feedbackSchema.parse(req.body)
 		await FeedbackService.sendFeedback(feedback)
