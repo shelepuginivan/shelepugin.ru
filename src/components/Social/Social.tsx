@@ -1,6 +1,6 @@
 import { Nunito, Roboto_Flex } from 'next/font/google'
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import phone from '@/assets/phone.png'
 
@@ -17,6 +17,8 @@ const robotoFlex = Roboto_Flex({
 })
 
 const Social: FC = () => {
+	const [clickCount, setClickCount] = useState(0)
+
 	return (
 		<div className={styles.social}>
 			<div>
@@ -41,10 +43,10 @@ const Social: FC = () => {
 					</li>
 				</ul>
 			</div>
-			<Image
-				src={phone}
-				alt='Old phone'
-			/>
+			{clickCount < 9
+				? <Image src={phone} alt='Old phone' onClick={() => setClickCount(prev => prev + 1)}/>
+				: <div className={`${robotoFlex.className} ${styles.imageFallback}`}>Ты его сломал!!1!</div>
+			}
 		</div>
 	)
 }

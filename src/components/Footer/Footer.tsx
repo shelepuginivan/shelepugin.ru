@@ -16,6 +16,7 @@ const Footer: FC = () => {
 				&copy; Шелепугин Иван, 2021&ndash;{new Date().getFullYear()}
 				<a href='/feed.xml'><i className='icon-rss'></i> RSS</a>
 			</div>
+			<p className={styles.secret}>Никто не должен это прочитать</p>
 		</footer>
 	)
 }
