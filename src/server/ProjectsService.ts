@@ -18,6 +18,7 @@ export class ProjectService {
 
 			const projects = await collection
 				.find()
+				.sort('title')
 				.skip(projectsPerPage * (page - 1))
 				.limit(projectsPerPage)
 				.toArray()
