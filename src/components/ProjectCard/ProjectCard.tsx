@@ -39,8 +39,16 @@ const ProjectCard: FC<PropsType> = ({
 					)}
 				</div>
 				<nav>
-					{githubLink && <a href={githubLink}><i className='icon-github'></i></a>}
-					{demoLink && <a href={demoLink}><i className='icon-demo'></i></a>}
+					{githubLink &&
+						<a href={githubLink} target='_blank'>
+							<i className='icon-github'></i>
+						</a>
+					}
+					{demoLink &&
+						<a href={demoLink} target='_blank'>
+							<i className='icon-demo'></i>
+						</a>
+					}
 				</nav>
 			</div>
 		</div>
