@@ -1,3 +1,4 @@
+import { Github, Mail, Send } from 'lucide-react'
 import { Nunito, Roboto_Flex } from 'next/font/google'
 import Image from 'next/image'
 import { FC, useState } from 'react'
@@ -26,19 +27,15 @@ const Social: FC = () => {
 
 				<ul className={robotoFlex.className}>
 					<li>
-						<i className='icon-contacts'> </i>
+						<Mail size={20}/>
 						<a href='mailto:shelepuginivanm@gmail.com'>shelepuginivanm@gmail.com</a>
 					</li>
 					<li>
-						<i className='icon-telegram'> </i>
+						<Send size={20}/>
 						<a href='https://t.me/shelepugin_ivan'>https://t.me/shelepugin_ivan</a>
 					</li>
 					<li>
-						<i className='icon-vk'> </i>
-						<a href='https://vk.com/shelepuginivan'>https://vk.com/shelepuginivan</a>
-					</li>
-					<li>
-						<i className='icon-github'> </i>
+						<Github size={20}/>
 						<a href='https://github.com/shelepuginivan'>https://github.com/shelepuginivan</a>
 					</li>
 				</ul>
