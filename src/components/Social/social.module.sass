@@ -28,19 +28,22 @@
 		font-size: xx-large
 		margin-bottom: 25px
 
-	ul
-		font-size: large
-		list-style-type: ''
-
-		li
-			margin-block: 10px
-
-			i
-				color: gray
-
 	a
 		color: $link-blue
 		text-decoration: none
 
 		&:hover
 			text-decoration: underline
+
+.linkList
+	font-size: large
+	list-style-type: ''
+
+	li
+		display: flex
+		align-items: center
+		gap: 8px
+		margin-block: 10px
+
+	i
+		color: gray

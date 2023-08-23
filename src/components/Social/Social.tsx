@@ -25,7 +25,7 @@ const Social: FC = () => {
 			<div>
 				<h1 className={nunito.className}>Контакты</h1>
 
-				<ul className={robotoFlex.className}>
+				<ul className={`${robotoFlex.className} ${styles.linkList}`}>
 					<li>
 						<Mail size={20}/>
 						<a href='mailto:shelepuginivanm@gmail.com'>shelepuginivanm@gmail.com</a>
