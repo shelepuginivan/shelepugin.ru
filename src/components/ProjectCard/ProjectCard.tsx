@@ -1,3 +1,4 @@
+import { Github, Play } from 'lucide-react'
 import { Roboto_Flex } from 'next/font/google'
 import { FC } from 'react'
 
@@ -41,12 +42,12 @@ const ProjectCard: FC<PropsType> = ({
 				<nav>
 					{githubLink &&
 						<a href={githubLink} target='_blank'>
-							<i className='icon-github'></i>
+							<Github size={32}/>
 						</a>
 					}
 					{demoLink &&
 						<a href={demoLink} target='_blank'>
-							<i className='icon-demo'></i>
+							<Play size={32}/>
 						</a>
 					}
 				</nav>

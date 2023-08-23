@@ -1,3 +1,4 @@
+import { Rss } from 'lucide-react'
 import { Nunito } from 'next/font/google'
 import { FC } from 'react'
 
@@ -14,7 +15,7 @@ const Footer: FC = () => {
 			<div className={styles.curve}></div>
 			<div className={`${styles.content} ${nunito.className}`}>
 				&copy; Шелепугин Иван, 2021&ndash;{new Date().getFullYear()}
-				<a href='/feed.xml'><i className='icon-rss'></i> RSS</a>
+				<a href='/feed.xml'><Rss/> RSS</a>
 			</div>
 			<p className={styles.secret}>Никто не должен это прочитать</p>
 		</footer>

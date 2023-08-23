@@ -1,3 +1,4 @@
+import { Rss } from 'lucide-react'
 import { Nunito } from 'next/font/google'
 import { FC } from 'react'
 
@@ -12,7 +13,7 @@ const ArticleListHeader: FC = () => {
 	return (
 		<div className={`${nunito.className} ${styles.header}`}>
 			<h1>Статьи</h1>
-			<a href='/feed.xml'><i className='icon-rss'></i> RSS</a>
+			<a href='/feed.xml'><Rss size={20}/> RSS</a>
 		</div>
 	)
 }
