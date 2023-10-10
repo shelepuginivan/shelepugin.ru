@@ -1,6 +1,6 @@
 <div align="center">
     <img src="./public/favicon.png" alt="logo" width="200" height="200">
-    <h1><a href="https://shelepuginivan.netlify.app">shelepuginivan.netlify.app</a></h1>
+    <h1><a href="https://shelepugin.ru">shelepugin.ru</a></h1>
 </div>
 
 ## Описание
