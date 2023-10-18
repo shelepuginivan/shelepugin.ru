@@ -32,7 +32,7 @@ const ArticleHeader: FC<PropsType> = ({
 				<a href={textDownloadLink}>Скачать текст</a>
 			</div>
 			<h1 className={nunito.className}>{title}</h1>
-			<img src={previewUrl} alt='Article preview'/>
+			<img src={previewUrl} alt={title}/>
 		</section>
 	)
 }
