@@ -42,7 +42,8 @@ export class ArticleService {
 
 		try {
 			const database = client.db(process.env.MONGO_DB_NAME)
-			const article = await database.collection('article').findOne({ slug: articleSlug }) as WithId<Article> | null
+			const collection = database.collection('article')
+			const article = await collection.findOne({ slug: articleSlug }) as WithId<Article> | null
 
 			if (!article)
 				throw new NotFound('Статья не найдена')

@@ -13,10 +13,11 @@ export class GalleryService {
 		const client = new MongoClient(process.env.MONGO_URI)
 		await client.connect()
 
-		const database = client.db(process.env.MONGO_DB_NAME)
-
 		try {
-			return await database.collection('image').distinct('category')
+			const database = client.db(process.env.MONGO_DB_NAME)
+			const collection = database.collection('image')
+
+			return await collection.distinct('category')
 		} finally {
 			await client.close()
 		}
