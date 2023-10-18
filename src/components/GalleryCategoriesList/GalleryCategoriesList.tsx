@@ -25,6 +25,7 @@ const GalleryCategoriesList: FC = () => {
 		case 'Control':
 		case 'OS':
 		case 'Shift':
+		case 'Tab':
 			break
 		default:
 			secretCode.current += event.key
