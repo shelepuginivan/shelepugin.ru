@@ -40,6 +40,7 @@ const FeedbackForm: FC = () => {
 			<form
 				onSubmit={onSubmit}
 				className={`${styles.form} ${robotoFlex.className}`}
+				aria-label='Отправить обратную связь'
 			>
 				<Input
 					name='firstname'
@@ -48,6 +49,8 @@ const FeedbackForm: FC = () => {
 					placeholder='Имя'
 					maxLength={FIRSTNAME_MAX_LENGTH}
 					required
+					aria-label='Имя'
+					aria-required={true}
 				/>
 				<Input
 					name='lastname'
@@ -56,6 +59,8 @@ const FeedbackForm: FC = () => {
 					placeholder='Фамилия'
 					maxLength={LASTNAME_MAX_LENGTH}
 					required
+					aria-label='Фамилия'
+					aria-required={true}
 				/>
 				<Input
 					id='email'
@@ -64,6 +69,8 @@ const FeedbackForm: FC = () => {
 					placeholder='Email'
 					maxLength={EMAIL_MAX_LENGTH}
 					required
+					aria-label='Email'
+					aria-required={true}
 				/>
 				<TextArea
 					className={robotoFlex.className}
@@ -72,6 +79,8 @@ const FeedbackForm: FC = () => {
 					placeholder={`Введите ваше сообщение (до ${FEEDBACK_MAX_LENGTH} символов)`}
 					maxLength={FEEDBACK_MAX_LENGTH}
 					required
+					aria-label={`Ваше сообщение (до ${FEEDBACK_MAX_LENGTH} символов)`}
+					aria-required={true}
 				/>
 				<Button type='submit'>Отправить</Button>
 			</form>
