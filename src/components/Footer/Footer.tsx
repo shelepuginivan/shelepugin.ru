@@ -15,7 +15,9 @@ const Footer: FC = () => {
 			<div className={styles.curve}></div>
 			<div className={`${styles.content} ${nunito.className}`}>
 				&copy; Шелепугин Иван, 2021&ndash;{new Date().getFullYear()}
-				<a href='/feed.xml'><Rss/> RSS</a>
+				<a href='/feed.xml'>
+					<Rss aria-hidden={true} focusable={false}/> RSS
+				</a>
 			</div>
 			<p className={styles.secret}>Никто не должен это прочитать</p>
 		</footer>
