@@ -16,14 +16,13 @@ export class ProjectService {
 			const database = client.db(process.env.MONGO_DB_NAME)
 			const collection = database.collection('project')
 
-			const projects = await collection
+			return await collection
 				.find()
 				.sort('title')
 				.skip(projectsPerPage * (page - 1))
 				.limit(projectsPerPage)
-				.toArray()
-
-			return projects as unknown as Project[]
+				.project({ _id: 0 })
+				.toArray() as Project[]
 		} finally {
 			await client.close()
 		}
