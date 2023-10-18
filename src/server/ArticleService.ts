@@ -14,7 +14,7 @@ export class ArticleService {
 
 		try {
 			const database = client.db(process.env.MONGO_DB_NAME)
-			const collection = await database.collection('article')
+			const collection = database.collection('article')
 
 			return await collection
 				.aggregate([
@@ -71,7 +71,7 @@ export class ArticleService {
 
 		try {
 			const database = client.db(process.env.MONGO_DB_NAME)
-			const collection = await database.collection('article')
+			const collection = database.collection('article')
 
 			return await collection.distinct('slug')
 		} finally {
