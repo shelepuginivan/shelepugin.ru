@@ -17,17 +17,21 @@ const nunito = Nunito({
 	weight: '400'
 })
 
-const ContentCard: FC<PropsType> = (props) => {
-	const backgroundImage = imgToCssUrl(props.backgroundImage)
+const ContentCard: FC<PropsType> = ({
+	title,
+	href,
+	backgroundImage: bgImage,
+}) => {
+	const backgroundImage = imgToCssUrl(bgImage)
 
 	return (
 		<Link
-			href={props.href}
+			href={href}
 			className={styles.cardWrapper}
 			style={{ backgroundImage }}
 		>
 			<div className={styles.card}>
-				<h1 className={nunito.className}>{props.title}</h1>
+				<h1 className={nunito.className}>{title}</h1>
 			</div>
 		</Link>
 	)
