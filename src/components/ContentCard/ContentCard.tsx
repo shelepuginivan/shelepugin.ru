@@ -29,6 +29,7 @@ const ContentCard: FC<PropsType> = ({
 			href={href}
 			className={styles.cardWrapper}
 			style={{ backgroundImage }}
+			aria-label={title}
 		>
 			<div className={styles.card}>
 				<h1 className={nunito.className}>{title}</h1>
