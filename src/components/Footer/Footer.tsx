@@ -6,7 +6,7 @@ import styles from './footer.module.sass'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
-	weight: '300'
+	weight: '400'
 })
 
 const Footer: FC = () => {
