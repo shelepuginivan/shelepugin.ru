@@ -41,13 +41,21 @@ const ProjectCard: FC<PropsType> = ({
 				</div>
 				<nav>
 					{githubLink &&
-						<a href={githubLink} target='_blank'>
-							<Github size={32}/>
+						<a
+							href={githubLink}
+							target='_blank'
+							aria-label='Репозиторий проекта на GitHub'
+						>
+							<Github size={32} aria-hidden={true} focusable={false}/>
 						</a>
 					}
 					{demoLink &&
-						<a href={demoLink} target='_blank'>
-							<Play size={32}/>
+						<a
+							href={demoLink}
+							target='_blank'
+							aria-label='Сайт проекта'
+						>
+							<Play size={32} aria-hidden={true} focusable={false}/>
 						</a>
 					}
 				</nav>
