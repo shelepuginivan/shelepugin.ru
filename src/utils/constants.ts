@@ -2,6 +2,7 @@ import { FeedOptions } from 'feed'
 
 import { getHost } from '@/utils/getHost'
 
+export const HOST = getHost()
 export const FIRSTNAME_MAX_LENGTH = 64
 export const LASTNAME_MAX_LENGTH = 128
 export const EMAIL_MAX_LENGTH = 128
