@@ -15,7 +15,6 @@ const Projects: FC = () => {
 		<>
 			<Head>
 				<meta name='og:title' content='Проекты | Иван Шелепугин'/>
-				<meta name='og:locale' content='ru_RU'/>
 				<title>Проекты | Иван Шелепугин</title>
 			</Head>
 			<main>
