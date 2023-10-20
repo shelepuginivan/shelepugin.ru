@@ -19,7 +19,7 @@ const robotoFlex = Roboto_Flex({
 const FeedbackForm: FC = () => {
 	const { mutate: submitFeedback, error, status } = useSubmitFeedbackMutation()
 
-	const onSubmit = async (event: FormEvent) => {
+	const onSubmit = (event: FormEvent) => {
 		event.preventDefault()
 
 		const form = event.target as unknown as Record<keyof Feedback, HTMLInputElement>
@@ -31,7 +31,7 @@ const FeedbackForm: FC = () => {
 			message: form.message.value
 		}
 
-		await submitFeedback(feedback)
+		submitFeedback(feedback)
 	}
 
 	return (
