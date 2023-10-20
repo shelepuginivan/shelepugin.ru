@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next'
 
 import { fetchRecentArticles } from '@/api/feed'
 import { feedOptions } from '@/utils/constants'
-import { getHost } from '@/utils/getHost'
+import { HOST } from '@/utils/constants'
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 	const feed = new Feed(feedOptions)
@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 		articles.forEach(article => {
 			feed.addItem({
 				date: new Date(article.publicationTime),
-				link: `${getHost()}/blog/${article.slug}`,
+				link: `${HOST}/blog/${article.slug}`,
 				title: article.title,
 				image: article.previewUrl,
 			})

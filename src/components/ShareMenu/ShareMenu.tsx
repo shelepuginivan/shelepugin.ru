@@ -2,7 +2,7 @@ import { Nunito, Roboto_Flex } from 'next/font/google'
 import { FC, useCallback, useState } from 'react'
 
 import Button from '@/ui/Button/Button'
-import { getHost } from '@/utils/getHost'
+import { HOST } from '@/utils/constants'
 
 import styles from './shareMenu.module.sass'
 
@@ -21,7 +21,7 @@ const ShareMenu: FC<{slug: string}> = ({ slug }) => {
 	const [isSuccess, setIsSuccess] = useState<boolean | null>(null)
 	const [message, setMessage] = useState('')
 
-	const shareLink = `${getHost()}/blog/${slug}`
+	const shareLink = `${HOST}/blog/${slug}`
 
 	const clipUrl = useCallback(async () => {
 		if (!navigator.clipboard) {

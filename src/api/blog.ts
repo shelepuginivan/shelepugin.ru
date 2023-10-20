@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-import { getHost } from '@/utils/getHost'
+import { HOST } from '@/utils/constants'
 import { Article } from '@/utils/types/Article'
 
 export const fetchArticleBySlug = async (slug: string): Promise<Article> => {
-	const res = await axios.get(`${getHost()}/api/blog/${slug}`)
+	const res = await axios.get(`${HOST}/api/blog/${slug}`)
 	return res.data
 }
 

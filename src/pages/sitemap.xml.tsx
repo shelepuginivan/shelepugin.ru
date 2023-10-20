@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 
 import { fetchAllGalleryCategories, fetchAllSlugs } from '@/api/sitemap'
-import { getHost } from '@/utils/getHost'
+import { HOST } from '@/utils/constants'
 
 const sitemapLocation = (url: string) => {
 	return `<url>
@@ -17,8 +17,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 		const blogSlugs = await fetchAllSlugs()
 		const galleryCategories = await fetchAllGalleryCategories()
 
-		blogSlugsUrls = blogSlugs.map(slug => sitemapLocation(`${getHost()}/blog/${slug}`)).join('')
-		galleryCategoriesUrls = galleryCategories.map(category => sitemapLocation(`${getHost()}/gallery/${category.name}`)).join('')
+		blogSlugsUrls = blogSlugs.map(slug => sitemapLocation(`${HOST}/blog/${slug}`)).join('')
+		galleryCategoriesUrls = galleryCategories.map(category => sitemapLocation(`${HOST}/gallery/${category.name}`)).join('')
 	} catch (error) {
 		blogSlugsUrls = ''
 		galleryCategoriesUrls = ''
@@ -27,17 +27,17 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>${getHost()}/</loc>
+		<loc>${HOST}/</loc>
 	</url>
 	<url>
-	   <loc>${getHost()}/projects</loc>
+	   <loc>${HOST}/projects</loc>
 	</url>
 	<url>
-	   <loc>${getHost()}/gallery</loc>
+	   <loc>${HOST}/gallery</loc>
 	</url>
 	${galleryCategoriesUrls}
 	<url>
-	   <loc>${getHost()}/blog</loc>
+	   <loc>${HOST}/blog</loc>
 	</url>
 	${blogSlugsUrls}
 </urlset>`

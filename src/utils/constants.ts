@@ -11,15 +11,15 @@ export const FEEDBACK_MAX_LENGTH = 500
 export const feedOptions: FeedOptions = {
 	title: 'Статьи Ивана Шелепугина',
 	description: 'Блог Ивана Шелепугина',
-	id: getHost(),
-	link: getHost(),
+	id: HOST,
+	link: HOST,
 	language: 'ru',
-	image: getHost(),
-	favicon: `${getHost()}/favicon.png`,
+	image: HOST,
+	favicon: `${HOST}/favicon.png`,
 	copyright: `Все права защищены 2021-${new Date().getFullYear()}, Иван Шелепугин`,
 	author: {
 		name: 'Иван Шелепугин',
 		email: 'shelepuginivanm@gmail.com',
-		link: getHost()
+		link: HOST
 	}
 }
