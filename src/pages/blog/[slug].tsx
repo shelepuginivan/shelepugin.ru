@@ -8,6 +8,7 @@ import ArticleHeader from '@/components/ArticleHeader/ArticleHeader'
 import ArticleText from '@/components/ArticleText/ArticleText'
 import ShareMenu from '@/components/ShareMenu/ShareMenu'
 import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
+import { HOST } from '@/utils/constants'
 import { descriptionFromText } from '@/utils/descriptionFromText'
 import { errorMessage } from '@/utils/errorMessage'
 import { Article } from '@/utils/types/Article'
@@ -63,6 +64,7 @@ const Article: FC<PropsType> = ({ article, errorMessage }) => {
 
 	const title = `${article.title} | Иван Шелепугин`
 	const description = descriptionFromText(article.text)
+	const url = `${HOST}/blog/${article.slug}`
 
 	return (
 		<>
@@ -72,6 +74,7 @@ const Article: FC<PropsType> = ({ article, errorMessage }) => {
 				<meta name='og:description' content={description}/>
 				<meta name='og:type' content='article'/>
 				<meta name='og:image' content={article.previewUrl}/>
+				<meta name='og:url' content={url}/>
 				<title>{title}</title>
 			</Head>
 			<main>
