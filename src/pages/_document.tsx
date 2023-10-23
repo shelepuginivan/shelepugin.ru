@@ -4,14 +4,14 @@ export default function Document() {
 	return (
 		<Html lang='ru'>
 			<Head>
-				<meta name='charset' content='UTF-8'/>
-				<meta name='author' content='Иван Шелепугин'/>
-				<meta name='copyright' content='Иван Шелепугин'/>
-				<meta name='og:locale' content='ru_RU'/>
-				<link rel='manifest' href='/manifest.json'/>
-				<link rel='icon' href='/favicon.png'/>
-				<link rel='shortcut icon' href='/favicon.png'/>
-				<link rel='favicon' href='/favicon.png'/>
+				<meta name='charset' content='UTF-8' />
+				<meta name='author' content='Иван Шелепугин' />
+				<meta name='copyright' content='Иван Шелепугин' />
+				<meta name='og:locale' content='ru_RU' />
+				<link rel='manifest' href='/manifest.json' />
+				<link rel='icon' href='/favicon.png' />
+				<link rel='shortcut icon' href='/favicon.png' />
+				<link rel='favicon' href='/favicon.png' />
 			</Head>
 			<body>
 				<Main />

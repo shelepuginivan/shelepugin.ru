@@ -6,13 +6,13 @@ export const middleware = (req: NextRequest) => {
 		{
 			status: 405,
 			headers: { 'Content-Type': 'application/json; charset=utf-8' },
-			nextConfig: {}
-		}
+			nextConfig: {},
+		},
 	)
 
 	if (
-		req.nextUrl.pathname !== '/api/feedback' && req.method !== 'GET' ||
-		req.nextUrl.pathname === '/api/feedback' && req.method !== 'POST'
+		(req.nextUrl.pathname !== '/api/feedback' && req.method !== 'GET') ||
+		(req.nextUrl.pathname === '/api/feedback' && req.method !== 'POST')
 	) {
 		return methodNotAllowedResponse
 	}

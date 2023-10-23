@@ -15,9 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<Header/>
+			<Header />
 			<Component {...pageProps} />
-			<Footer/>
+			<Footer />
 		</QueryClientProvider>
 	)
 }

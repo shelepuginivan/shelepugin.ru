@@ -12,28 +12,32 @@ type PropsType = Omit<Article, 'text' | 'previewUrl'> & {
 
 const nunito = Nunito({
 	subsets: ['cyrillic', 'latin'],
-	weight: '400'
+	weight: '400',
 })
 
 const robotoFlex = Roboto_Flex({
 	subsets: ['cyrillic', 'latin'],
-	weight: '400'
+	weight: '400',
 })
 
 const ArticlePreview: FC<PropsType> = ({
 	title,
 	slug,
 	previewUrl,
-	publicationTime
+	publicationTime,
 }) => {
-	const publicationDateString = new Intl.DateTimeFormat('ru').format(publicationTime)
+	const publicationDateString = new Intl.DateTimeFormat('ru').format(
+		publicationTime,
+	)
 
 	return (
 		<Link href={`/blog/${slug}`} className={styles.articlePreview}>
-			<img src={previewUrl} alt='Article preview' className={styles.img}/>
+			<img src={previewUrl} alt='Article preview' className={styles.img} />
 			<div className={styles.description}>
 				<h2 className={nunito.className}>{title}</h2>
-				<p className={robotoFlex.className}>Опубликовано: {publicationDateString}</p>
+				<p className={robotoFlex.className}>
+					Опубликовано: {publicationDateString}
+				</p>
 			</div>
 		</Link>
 	)

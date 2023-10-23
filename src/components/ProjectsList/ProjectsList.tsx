@@ -11,28 +11,33 @@ import { errorMessage } from '@/utils/errorMessage'
 import styles from './projectsList.module.sass'
 
 const ProjectsList: FC = () => {
-	const { data, error, fetchNextPage, hasNextPage, isLoading } = useProjectsInfiniteQuery()
+	const { data, error, fetchNextPage, hasNextPage, isLoading } =
+		useProjectsInfiniteQuery()
 
 	if (error) {
 		return <ErrorMessage message={errorMessage(error)} />
 	}
 
 	if (isLoading) {
-		return <Center><Loader/></Center>
+		return (
+			<Center>
+				<Loader />
+			</Center>
+		)
 	}
 
 	return (
 		<InfiniteScroll
 			className={styles.list}
 			next={fetchNextPage}
-			loader={<Loader/>}
+			loader={<Loader />}
 			hasMore={Boolean(hasNextPage)}
 			dataLength={data?.pages.length ?? 0}
 		>
-			{data?.pages.map(projects =>
-				projects.map(project =>
-					<ProjectCard key={project.title} {...project}/>
-				)
+			{data?.pages.map((projects) =>
+				projects.map((project) => (
+					<ProjectCard key={project.title} {...project} />
+				)),
 			)}
 		</InfiniteScroll>
 	)

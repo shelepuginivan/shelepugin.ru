@@ -10,7 +10,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 	if (typeof category !== 'string') {
 		res.status(400).json({
-			message: 'Некорректное значение параметра category'
+			message: 'Некорректное значение параметра category',
 		})
 
 		return
@@ -20,7 +20,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 		const galleryItems = await GalleryService.getGalleryItemsByCategory(
 			category,
 			page,
-			imagesPerPage
+			imagesPerPage,
 		)
 
 		res.status(200).json(galleryItems)

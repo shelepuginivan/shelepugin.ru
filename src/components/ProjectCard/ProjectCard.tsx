@@ -10,14 +10,14 @@ type PropsType = {
 	title: string
 	description: string
 	previewUrl: string
-	badgesUrls?: string[],
-	githubLink?: string,
+	badgesUrls?: string[]
+	githubLink?: string
 	demoLink?: string
 }
 
 const font = Roboto_Flex({
 	subsets: ['cyrillic'],
-	weight: '400'
+	weight: '400',
 })
 
 const ProjectCard: FC<PropsType> = ({
@@ -26,38 +26,34 @@ const ProjectCard: FC<PropsType> = ({
 	previewUrl,
 	badgesUrls,
 	githubLink,
-	demoLink
+	demoLink,
 }) => {
 	return (
 		<div className={`${styles.projectCard} ${font.className}`}>
-			<img src={previewUrl} alt={title} className={styles.img}/>
+			<img src={previewUrl} alt={title} className={styles.img} />
 			<div className={styles.content}>
 				<h2>{title}</h2>
 				<p>{description}</p>
 				<div className={styles.badges}>
-					{badgesUrls?.map((badge, index) =>
-						<Badge key={index} href={badge}/>
-					)}
+					{badgesUrls?.map((badge, index) => (
+						<Badge key={index} href={badge} />
+					))}
 				</div>
 				<nav>
-					{githubLink &&
+					{githubLink && (
 						<a
 							href={githubLink}
 							target='_blank'
 							aria-label='Репозиторий проекта на GitHub'
 						>
-							<Github size={32} aria-hidden={true} focusable={false}/>
+							<Github size={32} aria-hidden={true} focusable={false} />
 						</a>
-					}
-					{demoLink &&
-						<a
-							href={demoLink}
-							target='_blank'
-							aria-label='Сайт проекта'
-						>
-							<Play size={32} aria-hidden={true} focusable={false}/>
+					)}
+					{demoLink && (
+						<a href={demoLink} target='_blank' aria-label='Сайт проекта'>
+							<Play size={32} aria-hidden={true} focusable={false} />
 						</a>
-					}
+					)}
 				</nav>
 			</div>
 		</div>

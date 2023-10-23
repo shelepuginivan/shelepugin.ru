@@ -4,7 +4,10 @@ import { InternalServerError, NotFound } from '@/server/ServerException'
 import { Article } from '@/utils/types/Article'
 
 export class ArticleService {
-	static async getAllArticles(page: number, articlesPerPage: number): Promise<Omit<Article, 'text'>[]> {
+	static async getAllArticles(
+		page: number,
+		articlesPerPage: number,
+	): Promise<Omit<Article, 'text'>[]> {
 		if (!process.env.MONGO_URI || !process.env.MONGO_DB_NAME) {
 			throw new InternalServerError('Внутренняя ошибка сервера')
 		}
@@ -16,17 +19,19 @@ export class ArticleService {
 			const database = client.db(process.env.MONGO_DB_NAME)
 			const collection = database.collection('article')
 
-			return await collection
+			return (await collection
 				.aggregate([
 					{ $sort: { publicationTime: -1 } },
 					{ $skip: (page - 1) * articlesPerPage },
 					{ $limit: articlesPerPage },
-					{ $project: {
-						_id: 0,
-						text: 0
-					} }
+					{
+						$project: {
+							_id: 0,
+							text: 0,
+						},
+					},
 				])
-				.toArray() as Omit<Article, 'text'>[]
+				.toArray()) as Omit<Article, 'text'>[]
 		} finally {
 			await client.close()
 		}
@@ -43,10 +48,11 @@ export class ArticleService {
 		try {
 			const database = client.db(process.env.MONGO_DB_NAME)
 			const collection = database.collection('article')
-			const article = await collection.findOne({ slug: articleSlug }) as WithId<Article> | null
+			const article = (await collection.findOne({
+				slug: articleSlug,
+			})) as WithId<Article> | null
 
-			if (!article)
-				throw new NotFound('Статья не найдена')
+			if (!article) throw new NotFound('Статья не найдена')
 
 			const { title, previewUrl, publicationTime, slug, text } = article
 
@@ -55,7 +61,7 @@ export class ArticleService {
 				previewUrl,
 				publicationTime,
 				slug,
-				text
+				text,
 			}
 		} finally {
 			await client.close()

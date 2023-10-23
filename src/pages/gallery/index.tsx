@@ -7,20 +7,20 @@ import Container from '@/ui/Container/Container'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
-	weight: '300'
+	weight: '300',
 })
 
 const Gallery: FC = () => {
 	return (
 		<>
 			<Head>
-				<meta name='og:title' content='Галерея | Иван Шелепугин'/>
+				<meta name='og:title' content='Галерея | Иван Шелепугин' />
 				<title>Галерея | Иван Шелепугин</title>
 			</Head>
 			<main>
 				<Container>
 					<h1 className={nunito.className}>Галерея</h1>
-					<GalleryCategoriesList/>
+					<GalleryCategoriesList />
 				</Container>
 			</main>
 		</>

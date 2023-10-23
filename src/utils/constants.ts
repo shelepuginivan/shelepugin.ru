@@ -20,6 +20,6 @@ export const feedOptions: FeedOptions = {
 	author: {
 		name: 'Иван Шелепугин',
 		email: 'shelepuginivanm@gmail.com',
-		link: HOST
-	}
+		link: HOST,
+	},
 }

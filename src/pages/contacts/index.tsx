@@ -7,12 +7,12 @@ const Contacts = () => {
 	return (
 		<>
 			<Head>
-				<meta name='og:title' content='Контакты | Иван Шелепугин'/>
+				<meta name='og:title' content='Контакты | Иван Шелепугин' />
 				<title>Контакты | Иван Шелепугин</title>
 			</Head>
 			<main>
-				<Social/>
-				<FeedbackForm/>
+				<Social />
+				<FeedbackForm />
 			</main>
 		</>
 	)

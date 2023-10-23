@@ -17,8 +17,12 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 		const blogSlugs = await fetchAllSlugs()
 		const galleryCategories = await fetchAllGalleryCategories()
 
-		blogSlugsUrls = blogSlugs.map(slug => sitemapLocation(`${HOST}/blog/${slug}`)).join('')
-		galleryCategoriesUrls = galleryCategories.map(category => sitemapLocation(`${HOST}/gallery/${category.name}`)).join('')
+		blogSlugsUrls = blogSlugs
+			.map((slug) => sitemapLocation(`${HOST}/blog/${slug}`))
+			.join('')
+		galleryCategoriesUrls = galleryCategories
+			.map((category) => sitemapLocation(`${HOST}/gallery/${category.name}`))
+			.join('')
 	} catch (error) {
 		blogSlugsUrls = ''
 		galleryCategoriesUrls = ''

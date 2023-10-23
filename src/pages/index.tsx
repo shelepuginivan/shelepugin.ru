@@ -13,17 +13,29 @@ const Home = () => {
 	return (
 		<>
 			<Head>
-				<meta name='og:title' content='Главная | Иван Шелепугин'/>
+				<meta name='og:title' content='Главная | Иван Шелепугин' />
 				<title>Главная | Иван Шелепугин</title>
 			</Head>
 			<main>
-				<AboutMe/>
+				<AboutMe />
 				<Container>
 					<ResponsiveGrid>
-						<ContentCard href='/projects' title='Проекты' backgroundImage={projects} />
+						<ContentCard
+							href='/projects'
+							title='Проекты'
+							backgroundImage={projects}
+						/>
 						<ContentCard href='/blog' title='Блог' backgroundImage={blog} />
-						<ContentCard href='/gallery' title='Галерея' backgroundImage={gallery} />
-						<ContentCard href='/contacts' title='Контакты' backgroundImage={contacts} />
+						<ContentCard
+							href='/gallery'
+							title='Галерея'
+							backgroundImage={gallery}
+						/>
+						<ContentCard
+							href='/contacts'
+							title='Контакты'
+							backgroundImage={contacts}
+						/>
 					</ResponsiveGrid>
 				</Container>
 			</main>
@@ -32,4 +44,3 @@ const Home = () => {
 }
 
 export default Home
-

@@ -13,31 +13,29 @@ type PropsType = {
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
-	weight: '300'
+	weight: '300',
 })
 
 const FeedbackFormHeader: FC<PropsType> = ({ error, status }) => {
 	const headerText = (() => {
 		switch (status) {
-		case 'error': return 'Ошибка!'
-		case 'loading': return 'Подождите...'
-		case 'success': return 'Отправлено!'
-		default: return 'Форма обратной связи'
+			case 'error':
+				return 'Ошибка!'
+			case 'loading':
+				return 'Подождите...'
+			case 'success':
+				return 'Отправлено!'
+			default:
+				return 'Форма обратной связи'
 		}
 	})()
 
 	return (
 		<div className={styles.feedbackFormHeader}>
-			<h1
-				className={nunito.className}
-				data-status={status}
-			>
+			<h1 className={nunito.className} data-status={status}>
 				{headerText}
 			</h1>
-			<p
-				className={nunito.className}
-				data-error={status === 'error'}
-			>
+			<p className={nunito.className} data-error={status === 'error'}>
 				{errorMessage(error)}
 			</p>
 		</div>

@@ -8,8 +8,12 @@ export const fetchArticleBySlug = async (slug: string): Promise<Article> => {
 	return res.data
 }
 
-export const fetchBlogArticles = async (page: number, articlesPerPage: number): Promise<Omit<Article, 'text'>[]> => {
-	const res = await axios.get(`/api/blog?page=${page}&articlesPerPage=${articlesPerPage}`)
+export const fetchBlogArticles = async (
+	page: number,
+	articlesPerPage: number,
+): Promise<Omit<Article, 'text'>[]> => {
+	const res = await axios.get(
+		`/api/blog?page=${page}&articlesPerPage=${articlesPerPage}`,
+	)
 	return res.data
 }
-

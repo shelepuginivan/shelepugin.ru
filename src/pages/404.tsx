@@ -9,10 +9,7 @@ const NotFound = () => {
 				<title>404 - Ресурс не найден | Иван Шелепугин</title>
 			</Head>
 			<main>
-				<ErrorMessage
-					header='404'
-					message='Запрашиваемый ресурс не найден'
-				/>
+				<ErrorMessage header='404' message='Запрашиваемый ресурс не найден' />
 			</main>
 		</>
 	)

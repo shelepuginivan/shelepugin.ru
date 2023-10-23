@@ -4,10 +4,7 @@ import { ZodError } from 'zod'
 import { FeedbackService } from '@/server/FeedbackService'
 import { feedbackSchema } from '@/utils/schemas/feedback.schema'
 
-const handler = async (
-	req: NextApiRequest,
-	res: NextApiResponse
-) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
 		const feedback = feedbackSchema.parse(req.body)
 		await FeedbackService.sendFeedback(feedback)

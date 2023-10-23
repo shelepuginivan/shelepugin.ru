@@ -9,14 +9,15 @@ type PropsType = Omit<Article, 'text'>
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
-	weight: '300'
+	weight: '300',
 })
 
 const ArticleHeader: FC<PropsType> = ({
 	previewUrl,
 	publicationTime,
 	slug,
-	title }) => {
+	title,
+}) => {
 	const publicationDate = new Date(publicationTime)
 	const textDownloadLink = `/api/blog/${slug}/download`
 
@@ -32,7 +33,7 @@ const ArticleHeader: FC<PropsType> = ({
 				<a href={textDownloadLink}>Скачать текст</a>
 			</div>
 			<h1 className={nunito.className}>{title}</h1>
-			<img src={previewUrl} alt={title}/>
+			<img src={previewUrl} alt={title} />
 		</section>
 	)
 }

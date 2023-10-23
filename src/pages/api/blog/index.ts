@@ -8,7 +8,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	const articlesPerPage = Number(req.query.articlesPerPage) || 10
 
 	try {
-		const articlesOnThisPage = await ArticleService.getAllArticles(page, articlesPerPage)
+		const articlesOnThisPage = await ArticleService.getAllArticles(
+			page,
+			articlesPerPage,
+		)
 
 		res.status(200).json(articlesOnThisPage)
 	} catch (error) {

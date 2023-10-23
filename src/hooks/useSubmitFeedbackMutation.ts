@@ -6,5 +6,5 @@ import { Feedback } from '@/utils/types/Feedback'
 export const useSubmitFeedbackMutation = () =>
 	useMutation({
 		mutationFn: (feedback: Feedback) => submitFeedback(feedback),
-		mutationKey: ['feedback']
+		mutationKey: ['feedback'],
 	})

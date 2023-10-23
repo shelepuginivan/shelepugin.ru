@@ -6,14 +6,19 @@ import { useSubmitFeedbackMutation } from '@/hooks/useSubmitFeedbackMutation'
 import Button from '@/ui/Button/Button'
 import Input from '@/ui/Input/Input'
 import TextArea from '@/ui/TextArea/TextArea'
-import { EMAIL_MAX_LENGTH, FEEDBACK_MAX_LENGTH, FIRSTNAME_MAX_LENGTH, LASTNAME_MAX_LENGTH } from '@/utils/constants'
+import {
+	EMAIL_MAX_LENGTH,
+	FEEDBACK_MAX_LENGTH,
+	FIRSTNAME_MAX_LENGTH,
+	LASTNAME_MAX_LENGTH,
+} from '@/utils/constants'
 import { Feedback } from '@/utils/types/Feedback'
 
 import styles from './feedbackForm.module.sass'
 
 const robotoFlex = Roboto_Flex({
 	subsets: ['cyrillic', 'latin'],
-	weight: '400'
+	weight: '400',
 })
 
 const FeedbackForm: FC = () => {
@@ -22,13 +27,16 @@ const FeedbackForm: FC = () => {
 	const onSubmit = (event: FormEvent) => {
 		event.preventDefault()
 
-		const form = event.target as unknown as Record<keyof Feedback, HTMLInputElement>
+		const form = event.target as unknown as Record<
+			keyof Feedback,
+			HTMLInputElement
+		>
 
 		const feedback: Feedback = {
 			firstname: form.firstname.value,
 			lastname: form.lastname.value,
 			email: form.email.value,
-			message: form.message.value
+			message: form.message.value,
 		}
 
 		submitFeedback(feedback)
@@ -36,7 +44,7 @@ const FeedbackForm: FC = () => {
 
 	return (
 		<div className='container'>
-			<FeedbackFormHeader error={error} status={status}/>
+			<FeedbackFormHeader error={error} status={status} />
 			<form
 				onSubmit={onSubmit}
 				className={`${styles.form} ${robotoFlex.className}`}

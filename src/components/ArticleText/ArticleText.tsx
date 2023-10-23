@@ -6,10 +6,10 @@ import styles from './articleText.module.sass'
 
 const robotoFlex = Roboto_Flex({
 	subsets: ['cyrillic', 'latin'],
-	weight: '400'
+	weight: '400',
 })
 
-const ArticleText: FC<{text: string}> = ({ text }) => {
+const ArticleText: FC<{ text: string }> = ({ text }) => {
 	return (
 		<ReactMarkdown className={`${robotoFlex.className} ${styles.text}`}>
 			{text}

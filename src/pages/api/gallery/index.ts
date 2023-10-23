@@ -5,7 +5,8 @@ import { ServerException } from '@/server/ServerException'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
-		const categoriesWithPreview = await GalleryService.getCategoriesWithPreviews()
+		const categoriesWithPreview =
+			await GalleryService.getCategoriesWithPreviews()
 
 		res.status(200).json(categoriesWithPreview)
 	} catch (error) {

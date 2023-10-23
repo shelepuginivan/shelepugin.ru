@@ -8,7 +8,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 	if (typeof slug !== 'string') {
 		res.status(400).json({
-			message: 'Некорректное значение параметра slug'
+			message: 'Некорректное значение параметра slug',
 		})
 		return
 	}
@@ -24,7 +24,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 			res.status(500).json({ message: 'Внутренняя ошибка сервера' })
 		}
 	}
-
 }
 
 export default handler

@@ -11,15 +11,17 @@ import { errorMessage } from '@/utils/errorMessage'
 import styles from './articleList.module.sass'
 
 const ArticleList: FC = () => {
-	const { data, error, fetchNextPage, hasNextPage, isLoading } = useBlogArticlesInfiniteQuery()
+	const { data, error, fetchNextPage, hasNextPage, isLoading } =
+		useBlogArticlesInfiniteQuery()
 
-	if (error)
-		return <ErrorMessage message={errorMessage(error)}/>
+	if (error) return <ErrorMessage message={errorMessage(error)} />
 
 	if (isLoading) {
-		return <Center>
-			<Loader/>
-		</Center>
+		return (
+			<Center>
+				<Loader />
+			</Center>
+		)
 	}
 
 	return (
@@ -27,18 +29,17 @@ const ArticleList: FC = () => {
 			className={styles.list}
 			next={fetchNextPage}
 			hasMore={Boolean(hasNextPage)}
-			loader={<div className={styles.loaderWrapper}>
-				<Loader/>
-			</div>}
+			loader={
+				<div className={styles.loaderWrapper}>
+					<Loader />
+				</div>
+			}
 			dataLength={data?.pages.length ?? 0}
 		>
-			{data?.pages.map(articles =>
-				articles.map(article =>
-					<ArticlePreview
-						key={article.title}
-						{...article}
-					/>
-				)
+			{data?.pages.map((articles) =>
+				articles.map((article) => (
+					<ArticlePreview key={article.title} {...article} />
+				)),
 			)}
 		</InfiniteScroll>
 	)

@@ -6,7 +6,7 @@ import styles from './articleListHeader.module.sass'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
-	weight: '300'
+	weight: '300',
 })
 
 const ArticleListHeader: FC = () => {
@@ -14,7 +14,7 @@ const ArticleListHeader: FC = () => {
 		<div className={`${nunito.className} ${styles.header}`}>
 			<h1>Статьи</h1>
 			<a href='/feed.xml'>
-				<Rss size={20} aria-hidden={true} focusable={false}/> RSS
+				<Rss size={20} aria-hidden={true} focusable={false} /> RSS
 			</a>
 		</div>
 	)

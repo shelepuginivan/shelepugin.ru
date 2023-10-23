@@ -8,7 +8,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 	if (typeof slug !== 'string') {
 		res.status(400).json({
-			message: 'Некорректное значение параметра slug'
+			message: 'Некорректное значение параметра slug',
 		})
 		return
 	}

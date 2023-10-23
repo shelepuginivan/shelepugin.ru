@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 	try {
 		const articles = await fetchRecentArticles()
 
-		articles.forEach(article => {
+		articles.forEach((article) => {
 			feed.addItem({
 				date: new Date(article.publicationTime),
 				link: `${HOST}/blog/${article.slug}`,

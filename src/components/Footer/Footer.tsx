@@ -6,7 +6,7 @@ import styles from './footer.module.sass'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
-	weight: '400'
+	weight: '400',
 })
 
 const Footer: FC = () => {
@@ -16,7 +16,7 @@ const Footer: FC = () => {
 			<div className={`${styles.content} ${nunito.className}`}>
 				&copy; Шелепугин Иван, 2021&ndash;{new Date().getFullYear()}
 				<a href='/feed.xml'>
-					<Rss aria-hidden={true} focusable={false}/> RSS
+					<Rss aria-hidden={true} focusable={false} /> RSS
 				</a>
 			</div>
 			<p className={styles.secret}>Никто не должен это прочитать</p>

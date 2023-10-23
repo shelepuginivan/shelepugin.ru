@@ -8,15 +8,15 @@ import styles from './shareMenu.module.sass'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
-	weight: '400'
+	weight: '400',
 })
 
 const robotoFlex = Roboto_Flex({
 	subsets: ['cyrillic', 'latin'],
-	weight: '400'
+	weight: '400',
 })
 
-const ShareMenu: FC<{slug: string}> = ({ slug }) => {
+const ShareMenu: FC<{ slug: string }> = ({ slug }) => {
 	const [header, setHeader] = useState('Поделиться')
 	const [isSuccess, setIsSuccess] = useState<boolean | null>(null)
 	const [message, setMessage] = useState('')
@@ -71,10 +71,7 @@ const ShareMenu: FC<{slug: string}> = ({ slug }) => {
 
 	return (
 		<menu className={`${styles.menu} ${robotoFlex.className}`}>
-			<h1
-				data-succeed={isSuccess}
-				className={nunito.className}
-			>
+			<h1 data-succeed={isSuccess} className={nunito.className}>
 				{header}
 			</h1>
 			<p className={styles.errorMessage}>{message}</p>

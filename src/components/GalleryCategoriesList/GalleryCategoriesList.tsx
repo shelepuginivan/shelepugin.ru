@@ -16,19 +16,21 @@ const GalleryCategoriesList: FC = () => {
 
 	const secretCodeEnter = (event: KeyboardEvent) => {
 		switch (event.key) {
-		case 'Enter':
-			return setShowSecret(secretCode.current === process.env.NEXT_PUBLIC_UNLOCK_SECRET_PASSWORD)
-		case 'Backspace':
-			secretCode.current = secretCode.current.slice(0, -1)
-			break
-		case 'Alt':
-		case 'Control':
-		case 'OS':
-		case 'Shift':
-		case 'Tab':
-			break
-		default:
-			secretCode.current += event.key
+			case 'Enter':
+				return setShowSecret(
+					secretCode.current === process.env.NEXT_PUBLIC_UNLOCK_SECRET_PASSWORD,
+				)
+			case 'Backspace':
+				secretCode.current = secretCode.current.slice(0, -1)
+				break
+			case 'Alt':
+			case 'Control':
+			case 'OS':
+			case 'Shift':
+			case 'Tab':
+				break
+			default:
+				secretCode.current += event.key
 		}
 	}
 
@@ -39,27 +41,37 @@ const GalleryCategoriesList: FC = () => {
 	}, [])
 
 	if (isLoading) {
-		return <Center><Loader/></Center>
+		return (
+			<Center>
+				<Loader />
+			</Center>
+		)
 	}
 
 	if (error) {
-		return <ErrorMessage message={errorMessage(error)}/>
+		return <ErrorMessage message={errorMessage(error)} />
 	}
 
 	return (
 		<div className={styles.wrapper}>
-			{categories && categories.map((category) => {
-				if (!showSecret && category.name === process.env.NEXT_PUBLIC_SECRET_CATEGORY) {
-					return null
-				}
+			{categories &&
+				categories.map((category) => {
+					if (
+						!showSecret &&
+						category.name === process.env.NEXT_PUBLIC_SECRET_CATEGORY
+					) {
+						return null
+					}
 
-				return <ContentCard
-					key={category.name}
-					title={category.name}
-					backgroundImage={category.previewUrl}
-					href={`/gallery/${category.name}`}
-				/>
-			})}
+					return (
+						<ContentCard
+							key={category.name}
+							title={category.name}
+							backgroundImage={category.previewUrl}
+							href={`/gallery/${category.name}`}
+						/>
+					)
+				})}
 		</div>
 	)
 }

@@ -9,10 +9,7 @@ const InternalServerError = () => {
 				<title>500 - Внутренняя ошибка сервера | Иван Шелепугин</title>
 			</Head>
 			<main>
-				<ErrorMessage
-					header='500'
-					message='Внутренняя ошибка сервера'
-				/>
+				<ErrorMessage header='500' message='Внутренняя ошибка сервера' />
 			</main>
 		</>
 	)

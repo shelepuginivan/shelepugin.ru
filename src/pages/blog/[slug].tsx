@@ -18,12 +18,14 @@ type PropsType = {
 	errorMessage?: string
 }
 
-export const getServerSideProps = async ({ params }: GetServerSidePropsContext) => {
+export const getServerSideProps = async ({
+	params,
+}: GetServerSidePropsContext) => {
 	if (!params) {
 		return {
 			props: {
-				errorMessage: 'Не удалось получить параметры запроса'
-			}
+				errorMessage: 'Не удалось получить параметры запроса',
+			},
 		}
 	}
 
@@ -31,7 +33,7 @@ export const getServerSideProps = async ({ params }: GetServerSidePropsContext) 
 
 	if (typeof slug !== 'string') {
 		return {
-			notFound: true
+			notFound: true,
 		}
 	}
 
@@ -40,27 +42,27 @@ export const getServerSideProps = async ({ params }: GetServerSidePropsContext) 
 
 		return {
 			props: {
-				article
-			}
+				article,
+			},
 		}
 	} catch (error) {
 		if (error instanceof AxiosError && error.status === 404) {
 			return {
-				notFound: true
+				notFound: true,
 			}
 		}
 
 		return {
 			props: {
-				errorMessage: errorMessage(error)
-			}
+				errorMessage: errorMessage(error),
+			},
 		}
 	}
 }
 
 const Article: FC<PropsType> = ({ article, errorMessage }) => {
 	if (errorMessage || !article)
-		return <ErrorMessage message={errorMessage ?? 'Статья не найдена'}/>
+		return <ErrorMessage message={errorMessage ?? 'Статья не найдена'} />
 
 	const title = `${article.title} | Иван Шелепугин`
 	const description = descriptionFromText(article.text)
@@ -69,18 +71,18 @@ const Article: FC<PropsType> = ({ article, errorMessage }) => {
 	return (
 		<>
 			<Head>
-				<meta name='description' content={description}/>
-				<meta name='og:title' content={title}/>
-				<meta name='og:description' content={description}/>
-				<meta name='og:type' content='article'/>
-				<meta name='og:image' content={article.previewUrl}/>
-				<meta name='og:url' content={url}/>
+				<meta name='description' content={description} />
+				<meta name='og:title' content={title} />
+				<meta name='og:description' content={description} />
+				<meta name='og:type' content='article' />
+				<meta name='og:image' content={article.previewUrl} />
+				<meta name='og:url' content={url} />
 				<title>{title}</title>
 			</Head>
 			<main>
-				<ArticleHeader {...article}/>
-				<ArticleText text={article.text}/>
-				<ShareMenu slug={article.slug}/>
+				<ArticleHeader {...article} />
+				<ArticleText text={article.text} />
+				<ShareMenu slug={article.slug} />
 			</main>
 		</>
 	)

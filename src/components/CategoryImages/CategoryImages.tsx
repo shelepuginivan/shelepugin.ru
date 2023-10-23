@@ -9,17 +9,20 @@ import { errorMessage } from '@/utils/errorMessage'
 
 import styles from './categoryImages.module.sass'
 
-const CategoryImages: FC<{category: string}> = ({ category }) => {
-	const { data, error, fetchNextPage, hasNextPage, isLoading } = useGalleryImagesInfiniteQuery(category)
+const CategoryImages: FC<{ category: string }> = ({ category }) => {
+	const { data, error, fetchNextPage, hasNextPage, isLoading } =
+		useGalleryImagesInfiniteQuery(category)
 
 	if (error) {
-		return <ErrorMessage message={errorMessage(error)}/>
+		return <ErrorMessage message={errorMessage(error)} />
 	}
 
 	if (isLoading) {
-		return <Center>
-			<Loader/>
-		</Center>
+		return (
+			<Center>
+				<Loader />
+			</Center>
+		)
 	}
 
 	return (
@@ -27,15 +30,15 @@ const CategoryImages: FC<{category: string}> = ({ category }) => {
 			className={styles.wrapper}
 			next={fetchNextPage}
 			hasMore={Boolean(hasNextPage)}
-			loader={<div className={styles.loaderWrapper}>
-				<Loader/>
-			</div>}
+			loader={
+				<div className={styles.loaderWrapper}>
+					<Loader />
+				</div>
+			}
 			dataLength={data?.pages.length ?? 0}
 		>
-			{data?.pages.map(images =>
-				images.map(image =>
-					<img src={image} alt='' key={image}/>
-				)
+			{data?.pages.map((images) =>
+				images.map((image) => <img src={image} alt='' key={image} />),
 			)}
 		</InfiniteScroll>
 	)

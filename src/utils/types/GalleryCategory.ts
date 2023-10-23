@@ -1,4 +1,4 @@
-export type GalleryCategory= {
+export type GalleryCategory = {
 	name: string
 	previewUrl: string
 }

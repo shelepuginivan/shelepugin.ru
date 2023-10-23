@@ -7,29 +7,28 @@ import Container from '@/ui/Container/Container'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
-	weight: '300'
+	weight: '300',
 })
 
 const Category = () => {
 	const router = useRouter()
-	const { category } = router.query as {category: string}
+	const { category } = router.query as { category: string }
 
 	const title = `Галерея${category ? ` - ${category}` : ''} | Иван Шелепугин`
 
 	return (
 		<>
 			<Head>
-				<meta name='og:title' content={title}/>
+				<meta name='og:title' content={title} />
 				<title>{title}</title>
 			</Head>
 			<main>
 				<Container>
 					<h1 className={nunito.className}>{category}</h1>
-					<CategoryImages category={category}/>
+					<CategoryImages category={category} />
 				</Container>
 			</main>
 		</>
-
 	)
 }
 

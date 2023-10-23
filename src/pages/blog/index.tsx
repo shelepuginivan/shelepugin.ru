@@ -9,13 +9,13 @@ const Blog: FC = () => {
 	return (
 		<>
 			<Head>
-				<meta name='og:title' content='Блог | Иван Шелепугин'/>
+				<meta name='og:title' content='Блог | Иван Шелепугин' />
 				<title>Блог | Иван Шелепугин</title>
 			</Head>
 			<main>
 				<Container>
-					<ArticleListHeader/>
-					<ArticleList/>
+					<ArticleListHeader />
+					<ArticleList />
 				</Container>
 			</main>
 		</>
