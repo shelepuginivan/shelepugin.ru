@@ -1,38 +1,40 @@
 {
-  "name": "shelepuginivan-site",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint src --ext ts,tsx --fix"
-  },
-  "dependencies": {
-    "@sentry/nextjs": "^7.60.0",
-    "@tanstack/react-query": "^4.29.17",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.33",
-    "@types/react-dom": "18.0.11",
-    "axios": "^1.4.0",
-    "eslint-config-next": "13.3.0",
-    "feed": "^4.2.2",
-    "lucide-react": "^0.268.0",
-    "mongodb": "^5.2.0",
-    "next": "13.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-infinite-scroll-component": "^6.1.0",
-    "react-markdown": "^8.0.6",
-    "sass": "^1.61.0",
-    "typescript": "5.0.3",
-    "zod": "^3.22.4"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
-    "eslint": "^8.37.0",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "prettier": "3.0.3"
-  }
+	"name": "shelepuginivan-site",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"format": "prettier --write .",
+		"start": "next start",
+		"lint": "eslint src --ext ts,tsx",
+		"lint:fix": "eslint src --ext ts,tsx --fix"
+	},
+	"dependencies": {
+		"@sentry/nextjs": "^7.60.0",
+		"@tanstack/react-query": "^4.29.17",
+		"@types/node": "18.15.11",
+		"@types/react": "18.0.33",
+		"@types/react-dom": "18.0.11",
+		"axios": "^1.4.0",
+		"eslint-config-next": "13.3.0",
+		"feed": "^4.2.2",
+		"lucide-react": "^0.268.0",
+		"mongodb": "^5.2.0",
+		"next": "13.3.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-infinite-scroll-component": "^6.1.0",
+		"react-markdown": "^8.0.6",
+		"sass": "^1.61.0",
+		"typescript": "5.0.3",
+		"zod": "^3.22.4"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.57.1",
+		"@typescript-eslint/parser": "^5.57.1",
+		"eslint": "^8.37.0",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"prettier": "3.0.3"
+	}
 }
