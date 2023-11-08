@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import FeedbackForm from '@/components/FeedbackForm/FeedbackForm'
+import ReportBug from '@/components/ReportBug/ReportBug'
 import Social from '@/components/Social/Social'
 import { HOST } from '@/utils/constants'
 
@@ -14,6 +15,7 @@ const Contacts = () => {
 			</Head>
 			<main>
 				<Social />
+				<ReportBug />
 				<FeedbackForm />
 			</main>
 		</>
