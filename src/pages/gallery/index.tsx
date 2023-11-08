@@ -4,6 +4,7 @@ import { FC } from 'react'
 
 import GalleryCategoriesList from '@/components/GalleryCategoriesList/GalleryCategoriesList'
 import Container from '@/ui/Container/Container'
+import { HOST } from '@/utils/constants'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
@@ -15,6 +16,7 @@ const Gallery: FC = () => {
 		<>
 			<Head>
 				<meta name='og:title' content='Галерея | Иван Шелепугин' />
+				<meta name='og:image' content={`${HOST}/favicon.png`} />
 				<title>Галерея | Иван Шелепугин</title>
 			</Head>
 			<main>
