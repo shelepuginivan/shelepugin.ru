@@ -19,7 +19,7 @@ const ArticleHeader: FC<PropsType> = ({
 	title,
 }) => {
 	const publicationDate = new Date(publicationTime)
-	const textDownloadLink = `/api/blog/${slug}/download`
+	const textDownloadLink = `/blog/${slug}/download`
 
 	return (
 		<section className={styles.articleHeader}>
