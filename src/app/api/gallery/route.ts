@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server'
 import { GalleryService } from '@/server/GalleryService'
 import { ServerException } from '@/server/ServerException'
 
+export const dynamic = 'force-dynamic'
+
 export const GET = async () => {
 	try {
 		const categoriesWithPreview =
