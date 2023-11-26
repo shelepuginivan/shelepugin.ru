@@ -1,3 +1,5 @@
+'use client'
+
 import { Github, Mail, Send } from 'lucide-react'
 import { Nunito, Roboto_Flex } from 'next/font/google'
 import Image from 'next/image'
