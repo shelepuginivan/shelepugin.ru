@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import ArticleHeader from '@/components/ArticleHeader/ArticleHeader'
@@ -18,6 +18,42 @@ interface Props {
 	}
 }
 
+export const generateMetadata = async ({
+	params,
+}: Props): Promise<Metadata> => {
+	let article: Article
+
+	try {
+		article = await ArticleService.getArticleBySlug(params.slug)
+	} catch (error) {
+		if (error instanceof ServerException && error.status == 404) {
+			notFound()
+		}
+
+		return {
+			title: {
+				absolute: 'Произошла ошибка!',
+			},
+		}
+	}
+
+	const title = `${article.title} | Иван Шелепугин`
+	const description = descriptionFromText(article.text)
+	const url = `${HOST}/blog/${article.slug}`
+
+	return {
+		title,
+		description,
+		openGraph: {
+			title,
+			description,
+			type: 'article',
+			images: article.previewUrl,
+			url,
+		},
+	}
+}
+
 const ArticlePage = async ({ params }: Props) => {
 	let article: Article
 
@@ -31,27 +67,12 @@ const ArticlePage = async ({ params }: Props) => {
 		return <ErrorMessage message={errorMessage(error)} />
 	}
 
-	const title = `${article.title} | Иван Шелепугин`
-	const description = descriptionFromText(article.text)
-	const url = `${HOST}/blog/${article.slug}`
-
 	return (
-		<>
-			<Head>
-				<meta name='description' content={description} />
-				<meta name='og:title' content={title} />
-				<meta name='og:description' content={description} />
-				<meta name='og:type' content='article' />
-				<meta name='og:image' content={article.previewUrl} />
-				<meta name='og:url' content={url} />
-				<title>{title}</title>
-			</Head>
-			<main>
-				<ArticleHeader {...article} />
-				<ArticleText text={article.text} />
-				<ShareMenu slug={article.slug} />
-			</main>
-		</>
+		<main>
+			<ArticleHeader {...article} />
+			<ArticleText text={article.text} />
+			<ShareMenu slug={article.slug} />
+		</main>
 	)
 }
 

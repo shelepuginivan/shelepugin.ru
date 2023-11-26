@@ -1,5 +1,5 @@
+import { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
-import Head from 'next/head'
 import { FC } from 'react'
 
 import CategoryImages from '@/components/CategoryImages/CategoryImages'
@@ -16,23 +16,30 @@ const nunito = Nunito({
 	weight: '300',
 })
 
+export const generateMetadata = async ({
+	params,
+}: Props): Promise<Metadata> => {
+	const category = decodeURIComponent(params.category)
+	const title = `Галерея${category ? ` - ${category}` : ''}`
+
+	return {
+		title,
+		openGraph: {
+			title,
+		},
+	}
+}
+
 const Category: FC<Props> = ({ params }) => {
 	const category = decodeURIComponent(params.category)
-	const title = `Галерея${category ? ` - ${category}` : ''} | Иван Шелепугин`
 
 	return (
-		<>
-			<Head>
-				<meta name='og:title' content={title} />
-				<title>{title}</title>
-			</Head>
-			<main>
-				<Container>
-					<h1 className={nunito.className}>{category}</h1>
-					<CategoryImages category={category} />
-				</Container>
-			</main>
-		</>
+		<main>
+			<Container>
+				<h1 className={nunito.className}>{category}</h1>
+				<CategoryImages category={category} />
+			</Container>
+		</main>
 	)
 }
 

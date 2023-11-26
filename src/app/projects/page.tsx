@@ -1,5 +1,5 @@
+import { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
-import Head from 'next/head'
 import { FC } from 'react'
 
 import ProjectsList from '@/components/ProjectsList/ProjectsList'
@@ -10,20 +10,21 @@ const nunito = Nunito({
 	weight: '300',
 })
 
+export const metadata: Metadata = {
+	title: 'Проекты',
+	openGraph: {
+		title: 'Проекты',
+	},
+}
+
 const Projects: FC = () => {
 	return (
-		<>
-			<Head>
-				<meta name='og:title' content='Проекты | Иван Шелепугин' />
-				<title>Проекты | Иван Шелепугин</title>
-			</Head>
-			<main>
-				<Container>
-					<h1 className={nunito.className}>Проекты</h1>
-				</Container>
-				<ProjectsList />
-			</main>
-		</>
+		<main>
+			<Container>
+				<h1 className={nunito.className}>Проекты</h1>
+			</Container>
+			<ProjectsList />
+		</main>
 	)
 }
 
