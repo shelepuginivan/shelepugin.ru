@@ -1,3 +1,5 @@
+'use client'
+
 import { FC } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 

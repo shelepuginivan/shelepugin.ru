@@ -1,3 +1,5 @@
+'use client'
+
 import { Roboto_Flex } from 'next/font/google'
 import { FC, FormEvent } from 'react'
 
