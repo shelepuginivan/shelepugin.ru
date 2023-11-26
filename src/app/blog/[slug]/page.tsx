@@ -1,68 +1,35 @@
-import { AxiosError } from 'axios'
-import { GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
-import { FC } from 'react'
+import { notFound } from 'next/navigation'
 
-import { fetchArticleBySlug } from '@/api/blog'
 import ArticleHeader from '@/components/ArticleHeader/ArticleHeader'
 import ArticleText from '@/components/ArticleText/ArticleText'
 import ShareMenu from '@/components/ShareMenu/ShareMenu'
+import { ArticleService } from '@/server/ArticleService'
+import { ServerException } from '@/server/ServerException'
 import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
 import { HOST } from '@/utils/constants'
 import { descriptionFromText } from '@/utils/descriptionFromText'
 import { errorMessage } from '@/utils/errorMessage'
 import { Article } from '@/utils/types/Article'
 
-type PropsType = {
-	article?: Article
-	errorMessage?: string
+interface Props {
+	params: {
+		slug: string
+	}
 }
 
-export const getServerSideProps = async ({
-	params,
-}: GetServerSidePropsContext) => {
-	if (!params) {
-		return {
-			props: {
-				errorMessage: 'Не удалось получить параметры запроса',
-			},
-		}
-	}
-
-	const { slug } = params
-
-	if (typeof slug !== 'string') {
-		return {
-			notFound: true,
-		}
-	}
+const ArticlePage = async ({ params }: Props) => {
+	let article: Article
 
 	try {
-		const article = await fetchArticleBySlug(slug)
-
-		return {
-			props: {
-				article,
-			},
-		}
+		article = await ArticleService.getArticleBySlug(params.slug)
 	} catch (error) {
-		if (error instanceof AxiosError && error.status === 404) {
-			return {
-				notFound: true,
-			}
+		if (error instanceof ServerException && error.status == 404) {
+			notFound()
 		}
 
-		return {
-			props: {
-				errorMessage: errorMessage(error),
-			},
-		}
+		return <ErrorMessage message={errorMessage(error)} />
 	}
-}
-
-const Article: FC<PropsType> = ({ article, errorMessage }) => {
-	if (errorMessage || !article)
-		return <ErrorMessage message={errorMessage ?? 'Статья не найдена'} />
 
 	const title = `${article.title} | Иван Шелепугин`
 	const description = descriptionFromText(article.text)
@@ -88,4 +55,4 @@ const Article: FC<PropsType> = ({ article, errorMessage }) => {
 	)
 }
 
-export default Article
+export default ArticlePage
