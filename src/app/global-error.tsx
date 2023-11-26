@@ -1,7 +1,5 @@
 'use client'
 
-import Head from 'next/head'
-
 import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
 import { errorMessage } from '@/utils/errorMessage'
 
@@ -11,17 +9,19 @@ interface Props {
 
 const Error = ({ error }: Props) => {
 	return (
-		<>
-			<Head>
+		<html lang='ru'>
+			<head>
 				<title>Произошла ошибка!</title>
-			</Head>
-			<main>
-				<ErrorMessage
-					header='Произошла ошибка!'
-					message={errorMessage(error)}
-				/>
-			</main>
-		</>
+			</head>
+			<body>
+				<main>
+					<ErrorMessage
+						header='Произошла ошибка!'
+						message={errorMessage(error)}
+					/>
+				</main>
+			</body>
+		</html>
 	)
 }
 
