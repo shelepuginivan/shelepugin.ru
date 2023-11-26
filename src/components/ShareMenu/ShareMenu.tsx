@@ -1,3 +1,5 @@
+'use client'
+
 import { Nunito, Roboto_Flex } from 'next/font/google'
 import { FC, useCallback, useState } from 'react'
 
