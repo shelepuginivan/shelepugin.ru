@@ -1,19 +1,23 @@
 import { Nunito } from 'next/font/google'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { FC } from 'react'
 
 import CategoryImages from '@/components/CategoryImages/CategoryImages'
 import Container from '@/ui/Container/Container'
+
+interface Props {
+	params: {
+		category: string
+	}
+}
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
 	weight: '300',
 })
 
-const Category = () => {
-	const router = useRouter()
-	const { category } = router.query as { category: string }
-
+const Category: FC<Props> = ({ params }) => {
+	const category = decodeURIComponent(params.category)
 	const title = `Галерея${category ? ` - ${category}` : ''} | Иван Шелепугин`
 
 	return (
