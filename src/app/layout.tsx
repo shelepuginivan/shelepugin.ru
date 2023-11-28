@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang='ru'>
-			<body>
+			<body className='body'>
 				<Header />
 				<Providers>{children}</Providers>
 				<Footer />
