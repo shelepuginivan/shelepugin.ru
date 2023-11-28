@@ -1,0 +1,41 @@
+@import 'src/styles/globals'
+@import 'src/styles/media'
+@import 'src/styles/variables'
+
+.sidebarToggleButton
+	padding: 8px
+	background-color: transparent
+	display: none
+	aspect-ratio: 1 / 1
+	cursor: pointer
+
+.aside
+	@extend .transition
+	opacity: 1
+	position: absolute
+	top: 80px
+	right: 0
+	height: fit-content
+	display: flex
+	padding: 48px 64px
+	align-items: center
+	justify-content: flex-end
+	background-color: $translucent-white
+	backdrop-filter: blur(32px)
+
+	&[data-visible='false']
+		visibility: hidden
+		opacity: 0
+
+.nav
+	display: flex
+	flex-direction: column
+	gap: 16px
+	
+	li::marker
+		content: ''
+
+.link
+	font-size: 1.5em
+	text-decoration: none
+	color: $accent-red
