@@ -19,7 +19,9 @@ const Footer: FC = () => {
 					<Rss aria-hidden={true} focusable={false} /> RSS
 				</a>
 			</div>
-			<p className={styles.secret}>Никто не должен это прочитать</p>
+			<p aria-hidden={true} className={styles.secret}>
+				Никто не должен это прочитать
+			</p>
 		</footer>
 	)
 }
