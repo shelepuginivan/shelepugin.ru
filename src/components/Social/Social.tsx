@@ -27,26 +27,28 @@ const Social: FC = () => {
 			<div>
 				<h1 className={nunito.className}>Контакты</h1>
 
-				<ul className={`${robotoFlex.className} ${styles.linkList}`}>
-					<li>
-						<Mail size={20} aria-hidden={true} focusable={false} />
-						<a href='mailto:shelepuginivanm@gmail.com'>
-							shelepuginivanm@gmail.com
-						</a>
-					</li>
-					<li>
-						<Send size={20} aria-hidden={true} focusable={false} />
-						<a href='https://t.me/shelepugin_ivan'>
-							https://t.me/shelepugin_ivan
-						</a>
-					</li>
-					<li>
-						<Github size={20} aria-hidden={true} focusable={false} />
-						<a href='https://github.com/shelepuginivan'>
-							https://github.com/shelepuginivan
-						</a>
-					</li>
-				</ul>
+				<nav>
+					<ul className={`${robotoFlex.className} ${styles.linkList}`}>
+						<li>
+							<Mail size={20} aria-hidden={true} focusable={false} />
+							<a href='mailto:shelepuginivanm@gmail.com'>
+								shelepuginivanm@gmail.com
+							</a>
+						</li>
+						<li>
+							<Send size={20} aria-hidden={true} focusable={false} />
+							<a href='https://t.me/shelepugin_ivan'>
+								https://t.me/shelepugin_ivan
+							</a>
+						</li>
+						<li>
+							<Github size={20} aria-hidden={true} focusable={false} />
+							<a href='https://github.com/shelepuginivan'>
+								https://github.com/shelepuginivan
+							</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
 			{clickCount < 9 ? (
 				<Image
