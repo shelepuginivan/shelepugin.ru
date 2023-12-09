@@ -44,9 +44,11 @@ const GalleryCategoriesList: FC = () => {
 
 	if (isLoading) {
 		return (
-			<Center>
-				<Loader />
-			</Center>
+			<div id='wrapper' aria-live='polite' aria-busy={true}>
+				<Center>
+					<Loader />
+				</Center>
+			</div>
 		)
 	}
 
@@ -55,7 +57,12 @@ const GalleryCategoriesList: FC = () => {
 	}
 
 	return (
-		<div className={styles.wrapper}>
+		<div
+			id='wrapper'
+			className={styles.wrapper}
+			aria-live='polite'
+			aria-busy={false}
+		>
 			{categories &&
 				categories.map((category) => {
 					if (

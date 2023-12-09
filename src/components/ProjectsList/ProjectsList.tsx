@@ -13,8 +13,14 @@ import { errorMessage } from '@/utils/errorMessage'
 import styles from './projectsList.module.sass'
 
 const ProjectsList: FC = () => {
-	const { data, error, fetchNextPage, hasNextPage, isLoading } =
-		useProjectsInfiniteQuery()
+	const {
+		data,
+		error,
+		fetchNextPage,
+		hasNextPage,
+		isFetchingNextPage,
+		isLoading,
+	} = useProjectsInfiniteQuery()
 
 	if (error) {
 		return <ErrorMessage message={errorMessage(error)} />
@@ -22,26 +28,30 @@ const ProjectsList: FC = () => {
 
 	if (isLoading) {
 		return (
-			<Center>
-				<Loader />
-			</Center>
+			<div id='wrapper' aria-live='polite' aria-busy={true}>
+				<Center>
+					<Loader />
+				</Center>
+			</div>
 		)
 	}
 
 	return (
-		<InfiniteScroll
-			className={styles.list}
-			next={fetchNextPage}
-			loader={<Loader />}
-			hasMore={Boolean(hasNextPage)}
-			dataLength={data?.pages.length ?? 0}
-		>
-			{data?.pages.map((projects) =>
-				projects.map((project) => (
-					<ProjectCard key={project.title} {...project} />
-				)),
-			)}
-		</InfiniteScroll>
+		<div id='wrapper' aria-live='polite' aria-busy={isFetchingNextPage}>
+			<InfiniteScroll
+				className={styles.list}
+				next={fetchNextPage}
+				loader={<Loader />}
+				hasMore={Boolean(hasNextPage)}
+				dataLength={data?.pages.length ?? 0}
+			>
+				{data?.pages.map((projects) =>
+					projects.map((project) => (
+						<ProjectCard key={project.title} {...project} />
+					)),
+				)}
+			</InfiniteScroll>
+		</div>
 	)
 }
 
