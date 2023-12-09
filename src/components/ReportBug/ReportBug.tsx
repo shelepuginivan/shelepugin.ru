@@ -26,11 +26,11 @@ const ReportBug: FC = () => {
 			</p>
 			<ul className={`${styles.linkList} ${robotoFlex.className}`}>
 				<li>
-					<Mail size={20} />
+					<Mail size={20} aria-hidden={true} focusable={false} />
 					<a href='mailto:shelepuginivanm@gmail.com'>На почту</a>
 				</li>
 				<li>
-					<Github size={20} />
+					<Github size={20} aria-hidden={true} focusable={false} />
 					<a href='https://github.com/shelepuginivan/shelepugin.ru/issues/new'>
 						В GitHub Issues
 					</a>

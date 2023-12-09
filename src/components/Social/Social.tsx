@@ -29,19 +29,19 @@ const Social: FC = () => {
 
 				<ul className={`${robotoFlex.className} ${styles.linkList}`}>
 					<li>
-						<Mail size={20} />
+						<Mail size={20} aria-hidden={true} focusable={false} />
 						<a href='mailto:shelepuginivanm@gmail.com'>
 							shelepuginivanm@gmail.com
 						</a>
 					</li>
 					<li>
-						<Send size={20} />
+						<Send size={20} aria-hidden={true} focusable={false} />
 						<a href='https://t.me/shelepugin_ivan'>
 							https://t.me/shelepugin_ivan
 						</a>
 					</li>
 					<li>
-						<Github size={20} />
+						<Github size={20} aria-hidden={true} focusable={false} />
 						<a href='https://github.com/shelepuginivan'>
 							https://github.com/shelepuginivan
 						</a>

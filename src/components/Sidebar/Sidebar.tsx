@@ -29,7 +29,7 @@ const Sidebar: FC = () => {
 				aria-expanded={visible}
 				aria-label='Меню'
 			>
-				<Menu color='#e15252' size={32} />
+				<Menu color='#e15252' size={32} aria-hidden={true} focusable={false} />
 			</button>
 			<aside id={sidebarId} className={styles.aside} data-visible={visible}>
 				<nav>
