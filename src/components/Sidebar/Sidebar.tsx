@@ -3,7 +3,7 @@
 import { Menu } from 'lucide-react'
 import { Roboto_Flex } from 'next/font/google'
 import Link from 'next/link'
-import { FC, useState } from 'react'
+import { FC, useId, useState } from 'react'
 
 import styles from './sidebar.module.sass'
 
@@ -14,6 +14,7 @@ const robotoFlex = Roboto_Flex({
 
 const Sidebar: FC = () => {
 	const [visible, setVisible] = useState(false)
+	const sidebarId = useId()
 
 	const toggleSidebar = () => {
 		setVisible((visible) => !visible)
@@ -21,10 +22,16 @@ const Sidebar: FC = () => {
 
 	return (
 		<>
-			<button className={styles.sidebarToggleButton} onClick={toggleSidebar}>
+			<button
+				className={styles.sidebarToggleButton}
+				onClick={toggleSidebar}
+				aria-controls={sidebarId}
+				aria-expanded={visible}
+				aria-label='Меню'
+			>
 				<Menu color='#e15252' size={32} />
 			</button>
-			<aside className={styles.aside} data-visible={visible}>
+			<aside id={sidebarId} className={styles.aside} data-visible={visible}>
 				<nav>
 					<ul className={`${robotoFlex.className} ${styles.nav}`}>
 						<li>
