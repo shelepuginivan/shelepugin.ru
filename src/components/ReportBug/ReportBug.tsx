@@ -24,18 +24,20 @@ const ReportBug: FC = () => {
 				Если вы столкнулись с проблемой, пожалуйста, опишите её и отправьте
 				любым удобным для вас способом:
 			</p>
-			<ul className={`${styles.linkList} ${robotoFlex.className}`}>
-				<li>
-					<Mail size={20} />
-					<a href='mailto:shelepuginivanm@gmail.com'>На почту</a>
-				</li>
-				<li>
-					<Github size={20} />
-					<a href='https://github.com/shelepuginivan/shelepugin.ru/issues/new'>
-						В GitHub Issues
-					</a>
-				</li>
-			</ul>
+			<nav>
+				<ul className={`${styles.linkList} ${robotoFlex.className}`}>
+					<li>
+						<Mail size={20} aria-hidden={true} focusable={false} />
+						<a href='mailto:shelepuginivanm@gmail.com'>На почту</a>
+					</li>
+					<li>
+						<Github size={20} aria-hidden={true} focusable={false} />
+						<a href='https://github.com/shelepuginivan/shelepugin.ru/issues/new'>
+							В GitHub Issues
+						</a>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	)
 }

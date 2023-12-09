@@ -13,37 +13,47 @@ import { errorMessage } from '@/utils/errorMessage'
 import styles from './articleList.module.sass'
 
 const ArticleList: FC = () => {
-	const { data, error, fetchNextPage, hasNextPage, isLoading } =
-		useBlogArticlesInfiniteQuery()
+	const {
+		data,
+		error,
+		fetchNextPage,
+		hasNextPage,
+		isFetchingNextPage,
+		isLoading,
+	} = useBlogArticlesInfiniteQuery()
 
 	if (error) return <ErrorMessage message={errorMessage(error)} />
 
 	if (isLoading) {
 		return (
-			<Center>
-				<Loader />
-			</Center>
+			<div id='wrapper' aria-live='polite' aria-busy={true}>
+				<Center>
+					<Loader />
+				</Center>
+			</div>
 		)
 	}
 
 	return (
-		<InfiniteScroll
-			className={styles.list}
-			next={fetchNextPage}
-			hasMore={Boolean(hasNextPage)}
-			loader={
-				<div className={styles.loaderWrapper}>
-					<Loader />
-				</div>
-			}
-			dataLength={data?.pages.length ?? 0}
-		>
-			{data?.pages.map((articles) =>
-				articles.map((article) => (
-					<ArticlePreview key={article.title} {...article} />
-				)),
-			)}
-		</InfiniteScroll>
+		<div id='wrapper' aria-live='polite' aria-busy={isFetchingNextPage}>
+			<InfiniteScroll
+				className={styles.list}
+				next={fetchNextPage}
+				hasMore={Boolean(hasNextPage)}
+				loader={
+					<div className={styles.loaderWrapper}>
+						<Loader />
+					</div>
+				}
+				dataLength={data?.pages.length ?? 0}
+			>
+				{data?.pages.map((articles) =>
+					articles.map((article) => (
+						<ArticlePreview key={article.title} {...article} />
+					)),
+				)}
+			</InfiniteScroll>
+		</div>
 	)
 }
 

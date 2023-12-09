@@ -12,8 +12,14 @@ import { errorMessage } from '@/utils/errorMessage'
 import styles from './categoryImages.module.sass'
 
 const CategoryImages: FC<{ category: string }> = ({ category }) => {
-	const { data, error, fetchNextPage, hasNextPage, isLoading } =
-		useGalleryImagesInfiniteQuery(category)
+	const {
+		data,
+		error,
+		fetchNextPage,
+		hasNextPage,
+		isFetchingNextPage,
+		isLoading,
+	} = useGalleryImagesInfiniteQuery(category)
 
 	if (error) {
 		return <ErrorMessage message={errorMessage(error)} />
@@ -21,28 +27,32 @@ const CategoryImages: FC<{ category: string }> = ({ category }) => {
 
 	if (isLoading) {
 		return (
-			<Center>
-				<Loader />
-			</Center>
+			<div id='wrapper' aria-live='polite' aria-busy={true}>
+				<Center>
+					<Loader />
+				</Center>
+			</div>
 		)
 	}
 
 	return (
-		<InfiniteScroll
-			className={styles.wrapper}
-			next={fetchNextPage}
-			hasMore={Boolean(hasNextPage)}
-			loader={
-				<div className={styles.loaderWrapper}>
-					<Loader />
-				</div>
-			}
-			dataLength={data?.pages.length ?? 0}
-		>
-			{data?.pages.map((images) =>
-				images.map((image) => <img src={image} alt='' key={image} />),
-			)}
-		</InfiniteScroll>
+		<div id='wrapper' aria-live='polite' aria-busy={isFetchingNextPage}>
+			<InfiniteScroll
+				className={styles.wrapper}
+				next={fetchNextPage}
+				hasMore={Boolean(hasNextPage)}
+				loader={
+					<div className={styles.loaderWrapper}>
+						<Loader />
+					</div>
+				}
+				dataLength={data?.pages.length ?? 0}
+			>
+				{data?.pages.map((images) =>
+					images.map((image) => <img src={image} alt='' key={image} />),
+				)}
+			</InfiniteScroll>
+		</div>
 	)
 }
 
