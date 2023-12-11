@@ -49,7 +49,14 @@ const CategoryImages: FC<{ category: string }> = ({ category }) => {
 				dataLength={data?.pages.length ?? 0}
 			>
 				{data?.pages.map((images) =>
-					images.map((image) => <img src={image} alt='' key={image} />),
+					images.map((image) => (
+						<img
+							key={image.url}
+							src={image.url}
+							alt={image.description}
+							title={image.description}
+						/>
+					)),
 				)}
 			</InfiniteScroll>
 		</div>
