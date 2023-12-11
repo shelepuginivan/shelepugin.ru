@@ -65,7 +65,7 @@ export class GalleryService {
 		category: string,
 		page: number,
 		imagesPerPage: number,
-	): Promise<string[]> {
+	): Promise<Omit<Image, 'category'>[]> {
 		if (!process.env.MONGO_URI || !process.env.MONGO_DB_NAME) {
 			throw new InternalServerError('Внутренняя ошибка сервера')
 		}
@@ -87,7 +87,10 @@ export class GalleryService {
 				throw new NotFound(`Категория ${category} не найдена`)
 			}
 
-			return galleryItems.map((item) => item.url)
+			return galleryItems.map((item) => ({
+				url: item.url,
+				description: item.description,
+			}))
 		} finally {
 			await client.close()
 		}
