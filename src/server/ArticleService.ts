@@ -52,7 +52,9 @@ export class ArticleService {
 				slug: articleSlug,
 			})) as WithId<Article> | null
 
-			if (!article) throw new NotFound('Статья не найдена')
+			if (!article) {
+				throw new NotFound('Статья не найдена')
+			}
 
 			const { title, previewUrl, publicationTime, slug, text } = article
 
