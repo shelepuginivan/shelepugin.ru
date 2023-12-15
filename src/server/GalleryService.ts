@@ -64,7 +64,7 @@ export class GalleryService {
 	static async getGalleryItemsByCategory(
 		category: string,
 		page: number,
-		imagesPerPage: number,
+		limit: number,
 	): Promise<Omit<Image, 'category'>[]> {
 		if (!process.env.MONGO_URI || !process.env.MONGO_DB_NAME) {
 			throw new InternalServerError('Внутренняя ошибка сервера')
@@ -79,8 +79,8 @@ export class GalleryService {
 
 			const galleryItems = (await collection
 				.find({ category })
-				.skip(imagesPerPage * (page - 1))
-				.limit(imagesPerPage)
+				.skip(limit * (page - 1))
+				.limit(limit)
 				.toArray()) as WithId<Image>[]
 
 			if (!galleryItems) {

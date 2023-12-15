@@ -14,13 +14,13 @@ export const GET = async (request: NextRequest, { params }: Params) => {
 
 	const category = params.category
 	const page = Number(searchParams.get('page')) || 1
-	const imagesPerPage = Number(searchParams.get('imagesPerPage')) || 10
+	const limit = Number(searchParams.get('limit')) || 10
 
 	try {
 		const images = await GalleryService.getGalleryItemsByCategory(
 			category,
 			page,
-			imagesPerPage,
+			limit,
 		)
 
 		return NextResponse.json(images, { status: 200 })

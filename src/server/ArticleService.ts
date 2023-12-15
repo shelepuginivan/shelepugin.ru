@@ -6,7 +6,7 @@ import { Article } from '@/utils/types/Article'
 export class ArticleService {
 	static async getAllArticles(
 		page: number,
-		articlesPerPage: number,
+		limit: number,
 	): Promise<Omit<Article, 'text'>[]> {
 		if (!process.env.MONGO_URI || !process.env.MONGO_DB_NAME) {
 			throw new InternalServerError('Внутренняя ошибка сервера')
@@ -22,8 +22,8 @@ export class ArticleService {
 			return (await collection
 				.aggregate([
 					{ $sort: { publicationTime: -1 } },
-					{ $skip: (page - 1) * articlesPerPage },
-					{ $limit: articlesPerPage },
+					{ $skip: (page - 1) * limit },
+					{ $limit: limit },
 					{
 						$project: {
 							_id: 0,
@@ -52,7 +52,9 @@ export class ArticleService {
 				slug: articleSlug,
 			})) as WithId<Article> | null
 
-			if (!article) throw new NotFound('Статья не найдена')
+			if (!article) {
+				throw new NotFound('Статья не найдена')
+			}
 
 			const { title, previewUrl, publicationTime, slug, text } = article
 

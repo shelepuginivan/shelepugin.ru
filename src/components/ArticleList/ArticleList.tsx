@@ -22,7 +22,9 @@ const ArticleList: FC = () => {
 		isLoading,
 	} = useBlogArticlesInfiniteQuery()
 
-	if (error) return <ErrorMessage message={errorMessage(error)} />
+	if (error) {
+		return <ErrorMessage message={errorMessage(error)} />
+	}
 
 	if (isLoading) {
 		return (

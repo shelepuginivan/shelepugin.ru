@@ -4,10 +4,8 @@ import { Article } from '@/utils/types/Article'
 
 export const fetchBlogArticles = async (
 	page: number,
-	articlesPerPage: number,
+	limit: number,
 ): Promise<Omit<Article, 'text'>[]> => {
-	const res = await axios.get(
-		`/api/blog?page=${page}&articlesPerPage=${articlesPerPage}`,
-	)
+	const res = await axios.get(`/api/blog?page=${page}&limit=${limit}`)
 	return res.data
 }

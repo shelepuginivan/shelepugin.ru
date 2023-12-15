@@ -11,10 +11,10 @@ export const fetchGalleryCategories = async (): Promise<GalleryCategory[]> => {
 export const fetchGalleryImages = async (
 	category: string,
 	page: number,
-	imagesPerPage: number,
+	limit: number,
 ): Promise<Omit<Image, 'category'>[]> => {
 	const res = await axios.get(
-		`/api/gallery/${category}?page=${page}&imagesPerPage=${imagesPerPage}`,
+		`/api/gallery/${category}?page=${page}&limit=${limit}`,
 	)
 	return res.data
 }

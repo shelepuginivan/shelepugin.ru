@@ -4,10 +4,8 @@ import { Project } from '@/utils/types/Project'
 
 export const fetchProjects = async (
 	page: number,
-	articlesPerPage: number,
+	limit: number,
 ): Promise<Project[]> => {
-	const res = await axios.get(
-		`/api/projects?page=${page}&articlesPerPage=${articlesPerPage}`,
-	)
+	const res = await axios.get(`/api/projects?page=${page}&limit=${limit}`)
 	return res.data
 }

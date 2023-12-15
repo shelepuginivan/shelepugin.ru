@@ -7,13 +7,10 @@ export const GET = async (request: NextRequest) => {
 	const searchParams = request.nextUrl.searchParams
 
 	const page = Number(searchParams.get('page')) || 1
-	const articlesPerPage = Number(searchParams.get('articlesPerPage')) || 10
+	const limit = Number(searchParams.get('limit')) || 10
 
 	try {
-		const articlesOnThisPage = await ArticleService.getAllArticles(
-			page,
-			articlesPerPage,
-		)
+		const articlesOnThisPage = await ArticleService.getAllArticles(page, limit)
 
 		return NextResponse.json(articlesOnThisPage, { status: 200 })
 	} catch (error) {
