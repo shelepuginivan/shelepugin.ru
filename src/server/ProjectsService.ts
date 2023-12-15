@@ -4,10 +4,7 @@ import { InternalServerError } from '@/server/ServerException'
 import { Project } from '@/utils/types/Project'
 
 export class ProjectService {
-	static async getAllProjects(
-		page: number,
-		projectsPerPage: number,
-	): Promise<Project[]> {
+	static async getAllProjects(page: number, limit: number): Promise<Project[]> {
 		if (!process.env.MONGO_URI || !process.env.MONGO_DB_NAME) {
 			throw new InternalServerError('Внутренняя ошибка сервера')
 		}
@@ -22,8 +19,8 @@ export class ProjectService {
 			return (await collection
 				.find()
 				.sort('title')
-				.skip(projectsPerPage * (page - 1))
-				.limit(projectsPerPage)
+				.skip(limit * (page - 1))
+				.limit(limit)
 				.project({ _id: 0 })
 				.toArray()) as Project[]
 		} finally {
