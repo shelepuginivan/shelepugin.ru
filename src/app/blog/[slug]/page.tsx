@@ -37,15 +37,14 @@ export const generateMetadata = async ({
 		}
 	}
 
-	const title = `${article.title} | Иван Шелепугин`
 	const description = descriptionFromText(article.text)
 	const url = `${HOST}/blog/${article.slug}`
 
 	return {
-		title,
+		title: article.title,
 		description,
 		openGraph: {
-			title,
+			title: article.title,
 			description,
 			type: 'article',
 			images: article.previewUrl,
