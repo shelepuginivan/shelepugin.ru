@@ -26,8 +26,8 @@ const ArticlePreview: FC<PropsType> = ({
 	previewUrl,
 	publicationTime,
 }) => {
-	const publicationDateString = new Intl.DateTimeFormat('ru').format(
-		publicationTime,
+	const publicationDateString = new Date(publicationTime).toLocaleDateString(
+		'ru',
 	)
 
 	return (
