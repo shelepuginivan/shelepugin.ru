@@ -21,7 +21,7 @@ const FeedbackFormHeader: FC<PropsType> = ({ error, status }) => {
 		switch (status) {
 			case 'error':
 				return 'Ошибка!'
-			case 'loading':
+			case 'pending':
 				return 'Подождите...'
 			case 'success':
 				return 'Отправлено!'
