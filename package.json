@@ -12,29 +12,29 @@
 	},
 	"dependencies": {
 		"@sentry/nextjs": "^7.77.0",
-		"@tanstack/react-query": "^4.29.17",
-		"@types/node": "18.15.11",
+		"@tanstack/react-query": "^5.17.15",
+		"@types/node": "20.11.5",
 		"@types/react": "^18.2.38",
-		"@types/react-dom": "18.0.11",
+		"@types/react-dom": "18.2.18",
 		"axios": "^1.4.0",
 		"eslint-config-next": "^14.0.3",
 		"feed": "^4.2.2",
-		"lucide-react": "^0.268.0",
-		"mongodb": "^5.2.0",
+		"lucide-react": "^0.311.0",
+		"mongodb": "^6.3.0",
 		"next": "^14.0.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-infinite-scroll-component": "^6.1.0",
-		"react-markdown": "^8.0.6",
+		"react-markdown": "^9.0.1",
 		"sass": "^1.61.0",
-		"typescript": "5.0.3",
+		"typescript": "5.3.3",
 		"zod": "^3.22.4"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.57.1",
-		"@typescript-eslint/parser": "^5.57.1",
+		"@typescript-eslint/eslint-plugin": "^6.19.0",
+		"@typescript-eslint/parser": "^6.19.0",
 		"eslint": "^8.37.0",
 		"eslint-plugin-simple-import-sort": "^10.0.0",
-		"prettier": "3.0.3"
+		"prettier": "3.2.4"
 	}
 }
