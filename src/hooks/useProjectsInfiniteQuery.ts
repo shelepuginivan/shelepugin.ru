@@ -4,6 +4,7 @@ import { fetchProjects } from '@/api/projects'
 
 export const useProjectsInfiniteQuery = (limit = 10) =>
 	useInfiniteQuery({
+		initialPageParam: 1,
 		queryFn: ({ pageParam = 1 }) => fetchProjects(pageParam, limit),
 		queryKey: ['projects'],
 		getNextPageParam: (lastPage, allPages) =>
