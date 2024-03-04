@@ -1,3 +1,10 @@
 baseURL = 'https://shelepugin.ru/'
 languageCode = 'ru'
 title = 'Шелепугин Иван'
+
+[menu]
+  [[menu.main]]
+    identifier = "blog"
+    name = "Блог"
+    url = "/blog"
+    weight = 10
