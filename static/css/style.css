@@ -84,44 +84,6 @@ body {
     margin-top: 48px;
 }
 
-.taglist-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 80px;
-}
-
-.taglist {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.taglist-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 8px;
-    border-radius: 4px;
-    background-color: var(--gray);
-    width: fit-content;
-    text-decoration: none;
-}
-
-.post-card {
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-block: 32px;
-    border-left: 2px solid var(--gray);
-    padding-left: 16px;
-}
-
-.post-card:hover {
-    border-color: var(--accent-red);
-}
-
 .text > * {
     margin-block: 16px;
 }

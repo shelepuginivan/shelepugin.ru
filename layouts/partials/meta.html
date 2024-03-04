@@ -1,0 +1,16 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{{ if eq .Kind "page" }}
+<meta name="description" content="{{ .Summary }}" />
+<meta name="author" content="{{ .Params.Author | default site.Author.name }}" />
+{{ else }}
+<meta name="description" content="{{ site.Params.description }}" />
+<meta name="author" content="{{ site.Author.name }}" />
+{{ end }}
+
+
+{{ with .OutputFormats.Get "rss" }}
+	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end }}
+<title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
