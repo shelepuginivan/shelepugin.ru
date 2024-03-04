@@ -9,12 +9,8 @@
     {{ .Content }}
 </div>
 
-<div class="container">
-    <p class="text-secondary"> Тэги:
-        {{ range .Params.tags }}
-            <a class="text-secondary" href="{{ printf "/tags/%s" . }}">{{ . }}</a>
-        {{ end }}
-    </p>
+<div class="taglist-wrapper">
+    Тэги: {{ partial "taglist.html" .Params.tags }}
 </div>
 
 {{ end }}
