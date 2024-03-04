@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+<h1>{{ .Page.Title }}</h1>
+
+<div class="container">
+    {{ range.Data.Pages }}
+        {{ partial "project.html" . }}
+    {{ end }}
+</div>
+
+{{ end }}

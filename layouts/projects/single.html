@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+<div class="container text">
+    {{ .Content }}
+</div>
+
+<div class="badges-wrapper">
+    Технологии: {{ partial "badges.html" .Params.Badges }}
+</div>
+
+{{ end }}
