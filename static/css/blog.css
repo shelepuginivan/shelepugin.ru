@@ -12,6 +12,7 @@
 }
 
 .taglist-item {
+    transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,6 +21,10 @@
     background-color: var(--gray);
     width: fit-content;
     text-decoration: none;
+}
+
+.taglist-item:hover {
+    color: var(--accent-red);
 }
 
 .post-card {
