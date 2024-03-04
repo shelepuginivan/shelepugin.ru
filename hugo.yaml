@@ -2,6 +2,9 @@ baseURL: "https://shelepugin.ru/"
 languageCode: "ru"
 title: "Шелепугин Иван"
 
+taxonomies:
+  tag: "tags"
+
 menu:
   main:
     - identifier: "blog"
