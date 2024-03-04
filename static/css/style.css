@@ -30,11 +30,13 @@ body {
 
 .header,
 .footer {
-    padding: 48px;
+    padding-block: 48px;
 }
 
 .nav {
     display: flex;
+    width: 80%;
+    margin: 0 auto;
     justify-content: space-between;
 }
 
@@ -49,6 +51,13 @@ body {
 
 .main {
     flex-grow: 1;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.footer > * {
+    width: 80%;
+    margin: 0 auto;
 }
 
 .gradient-text {
