@@ -6,6 +6,7 @@
     --gray: #444;
     --accent-red: #E13E3B;
     --accent-yellow: #FADF3D;
+    --transition: all .2s ease;
 }
 
 * {
@@ -105,6 +106,24 @@ body {
     background-color: var(--gray);
     width: fit-content;
     text-decoration: none;
+}
+
+.post-card {
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-block: 32px;
+    border-left: 2px solid var(--gray);
+    padding-left: 16px;
+}
+
+.post-card:hover {
+    border-color: var(--accent-red);
+}
+
+.text > * {
+    margin-block: 16px;
 }
 
 @media screen and (max-width: 690px) {
