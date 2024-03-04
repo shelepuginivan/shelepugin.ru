@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
 <ul>
 {{ range .Site.Taxonomies.tags.Alphabetical }}
@@ -6,4 +6,4 @@
 {{ end }}
 </ul>
 
-{{ partial "footer.html" . }}
+{{ end }}
