@@ -1,0 +1,7 @@
+<div class="project-card">
+    <h3>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h3>
+    <p>{{ .Params.Description }}</p>
+    {{ partial "badges.html" .Params.Badges }}
+<div>
