@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
+<h1><span class="text-secondary">Тэг:</span>{{ .Title }}</h1>
 
 {{ range.Data.Pages }}
     {{ partial "post.html" . }}
