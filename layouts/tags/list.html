@@ -1,0 +1,9 @@
+{{ partial "header.html" . }}
+
+<ul>
+{{ range .Site.Taxonomies.tags.Alphabetical }}
+    <li><a href="{{ printf "/tags/%s" .Name }}">{{ .Name }}</a></li>
+{{ end }}
+</ul>
+
+{{ partial "footer.html" . }}
