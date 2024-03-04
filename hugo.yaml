@@ -11,3 +11,11 @@ menu:
       name: "Блог"
       url: "/blog"
       weight: 10
+    - identifier: "projects"
+      name: "Проекты"
+      url: "/projects"
+      weight: 20
+    - identifier: "links"
+      name: "Ссылки"
+      url: "/links"
+      weight: 30
