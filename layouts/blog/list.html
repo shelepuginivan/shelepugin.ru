@@ -1,11 +1,11 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
+<h1>Блог</h1>
 
-{{ .Content }}
-
-{{ range.Data.Pages }}
-    {{ partial "post.html" . }}
-{{ end }}
+<div class="container">
+    {{ range.Data.Pages }}
+        {{ partial "post.html" . }}
+    {{ end }}
+</div>
 
 {{ end }}

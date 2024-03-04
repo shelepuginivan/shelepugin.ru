@@ -76,3 +76,7 @@ body {
 .text-secondary {
     color: var(--text-1);
 }
+
+.container {
+    margin-top: 48px;
+}
