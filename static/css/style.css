@@ -38,7 +38,9 @@ body {
 
 .nav {
     display: flex;
-    width: 80%;
+    width: 100%;
+    max-width: 896px;
+    padding: 32px;
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
@@ -55,12 +57,16 @@ body {
 
 .main {
     flex-grow: 1;
-    width: 80%;
+    width: 100%;
+    max-width: 896px;
+    padding: 32px;
     margin: 0 auto;
 }
 
 .footer > * {
-    width: 80%;
+    width: 100%;
+    max-width: 896px;
+    padding: 32px;
     margin: 0 auto;
 }
 
