@@ -1,9 +1,26 @@
-{{ partial "header.html" . }}
-
-<h1>Page Not Found</h1>
-
-<p>This page doesn't exist.</p>
-
-<p><a href="/">Go back to the home page</a></p>
-
-{{ partial "footer.html" . }}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/css/not-found.css" type="text/css" media="all" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <title>Такой страницы не существует | {{ .Site.Title }}</title>
+</head>
+<body>
+    <div class="wrapper">
+        {{ partial "header.html" . }}
+        <main class="main">
+            <div class="not-found">
+                <h2 class="not-found-code">404</h2>
+                <h1 class="not-found-heading">Такой страницы не существует</h1>
+                <p><a href="/">На главную</a></p>
+            </div>
+        </main>
+        {{ partial "footer.html" . }}
+    </div>
+</body>
+</html>
