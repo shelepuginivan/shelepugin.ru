@@ -2,7 +2,7 @@
     --bg: #29282a;
     --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --text: #efeef0;
-    --text-1: #c1c1c2;
+    --text-1: #b1b1c2;
     --gray: #444;
     --accent-red: #E13E3B;
     --accent-orange: #EE903C;
@@ -93,6 +93,25 @@ body {
 
 .text > * {
     margin-block: 16px;
+}
+
+.text ul,
+.text ol {
+    padding-left: 40px;
+}
+
+.text ul > li,
+.text ol > li {
+    margin-block: 8px;
+}
+
+.text blockquote {
+    padding-left: 8px;
+    border-left: 1px solid var(--text-1);
+}
+
+.text blockquote * {
+    color: var(--text-1);
 }
 
 @media screen and (max-width: 690px) {
