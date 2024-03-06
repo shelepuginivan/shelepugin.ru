@@ -1,8 +1,14 @@
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 80px;
+}
+
 .badges-wrapper {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-top: 80px;
 }
 
 .project-card {
