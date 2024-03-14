@@ -4,7 +4,7 @@
     {{ $small := $image.Resize "400x png" }}
     {{ $medium := $image.Resize "700x png" }}
     {{ $large := $image.Resize "1000x png" }}
-    {{ $maxres := $image.Process "png" }}
+    {{ $maxres := $image }}
     <picture>
         <source srcset="{{ $small.RelPermalink }}" media="(max-width: 512px)" type="image/png">
         <source srcset="{{ $medium.RelPermalink }}" media="(max-width: 768px)" type="image/png">
