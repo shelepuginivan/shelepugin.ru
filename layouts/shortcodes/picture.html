@@ -1,0 +1,15 @@
+<figure class="picture">
+    {{ $imageSrc := printf "img/%s" (.Get "source") }}
+    {{ $image := resources.GetMatch $imageSrc }}
+    {{ $small := $image.Resize "400x png" }}
+    {{ $medium := $image.Resize "700x png" }}
+    {{ $large := $image.Resize "1000x png" }}
+    {{ $maxres := $image.Process "png" }}
+    <picture>
+        <source srcset="{{ $small.RelPermalink }}" media="(max-width: 512px)" type="image/png">
+        <source srcset="{{ $medium.RelPermalink }}" media="(max-width: 768px)" type="image/png">
+        <source srcset="{{ $large.RelPermalink }}" media="(max-width: 1024px)" type="image/png">
+        <img src="{{ $maxres.RelPermalink }}" alt="{{ .Inner }}" loading="lazy">
+    </picture>
+    <figcaption>{{ .Inner }}</figcaption>
+</figure>
