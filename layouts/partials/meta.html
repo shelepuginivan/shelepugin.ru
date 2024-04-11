@@ -10,6 +10,8 @@
 {{ $imgSrc := printf "img/%s" .Params.Image.Source }}
 <meta name="og:image" content="{{ (resources.GetMatch $imgSrc).Permalink }}" />
 <meta name="og:image:alt" content="{{ .Params.Image.Alt }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="{{ (resources.GetMatch $imgSrc).Permalink }}" />
 {{ end }}
 
 {{ if eq .Kind "page" }}
