@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2023-12-20T06:04:59+03:00
 type: blog
 image:
-    source: "angel.png"
+    source: "angel-social.png"
     alt: "Ангел"
 tags:
   - творчество

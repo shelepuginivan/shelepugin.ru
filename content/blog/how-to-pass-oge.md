@@ -3,6 +3,9 @@ title: "Как сдать ОГЭ?"
 author: "Иван Шелепугин"
 date: 2023-04-21T03:11:07+03:00
 type: blog
+image:
+    source: "how-to-pass-oge-social.png"
+    alt: "Как сдать ОГЭ?"
 tags:
   - образование
   - опыт

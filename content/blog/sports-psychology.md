@@ -3,6 +3,9 @@ title: "Психология спорта"
 author: "Иван Шелепугин"
 date: 2021-12-13T23:05:48+03:00
 type: blog
+image:
+    source: "sports-psychology-social.png"
+    alt: "Психология спорта"
 tags:
   - разное
   - статья

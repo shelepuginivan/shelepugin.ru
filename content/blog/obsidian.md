@@ -3,6 +3,9 @@ title: "О программе Obsidian"
 author: "Иван Шелепугин"
 date: 2023-08-06T03:00:00+03:00
 type: blog
+image:
+    source: "obsidian-social.png"
+    alt: "О программе Obsidian"
 tags:
   - разное
   - отзыв

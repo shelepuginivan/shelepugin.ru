@@ -3,6 +3,9 @@ title: "Дети в Интернете"
 author: "Иван Шелепугин"
 date: 2021-10-09T23:05:48+03:00
 type: blog
+image:
+    source: "children-in-the-internet-social.png"
+    alt: "Дети в Интернете"
 tags:
   - социология
   - статья
