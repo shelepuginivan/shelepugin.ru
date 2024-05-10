@@ -31,4 +31,4 @@ badges:
 Церемония награждения "Искусственное Искусство"
 {{< /picture >}}
 
-Вы можете {{< download href="https://cdn.shelepugin.ru/x/artificialart.zip" file="artificialart.zip" >}}скачать архив работ{{< /download >}} участников.
+Вы можете {{< download href="https://cdn.shelepugin.ru/x/zip/artificialart.zip" file="artificialart.zip" >}}скачать архив работ{{< /download >}} участников.
