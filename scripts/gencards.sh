@@ -4,9 +4,12 @@ PROGRAM_NAME=$(basename $0)
 
 # Default settings
 COLOR="#ffffff"
-FONT_SIZE="18"
+FONT_SIZE="48"
+FONT="$HOME/.local/share/fonts/JetBrainsMono/fonts/ttf/JetBrainsMono-Medium.ttf"
 OUTPUT="social.png"
 TEMPLATE="template.png"
+OFFSET_X=128
+OFFSET_Y=256
 
 help() {
 	echo "Usage: $PROGRAM_NAME [OPTIONS]"
@@ -20,8 +23,8 @@ help() {
 	echo "  -o OUTPUT      Specify the output file (default: $OUTPUT)"
     echo "  -s SIZE        Specify the font size in px (default: $FONT_SIZE)"
     echo "  -t TITLE       Specify the title of the card"
-	echo "  -x OFFSET_X    Specify the horizontal offset for the text"
-	echo "  -y OFFSET_Y    Specify the vertical offset for the text"
+    echo "  -x OFFSET_X    Specify the horizontal offset for the text (default: $OFFSET_X)"
+    echo "  -y OFFSET_Y    Specify the vertical offset for the text (default: $OFFSET_Y)"
 	echo
 	echo "Example:"
 	echo "  $PROGRAM_NAME -f 'JetBrains Mono' -t 'Lorem Ipsum Dolor Sit Amet' -x 96 -y 96 -s 48"
@@ -76,21 +79,11 @@ if ! command -v convert  &> /dev/null; then
     exit 1
 fi
 
-if [ -z "$OFFSET_X" ]; then
-    echo "error: horizontal offset is required"
-    echo "Use -h to see help"
-fi
-
-if [ -z "$OFFSET_Y" ]; then
-    echo "error: vertical offset is required"
-    echo "Use -h to see help"
-fi
-
 if [ -z "$TITLE" ]; then
     echo "warning: empty title"
 fi
 
-convert "$TEMPLATE"                           \
+magick "$TEMPLATE"                            \
     -pointsize "$FONT_SIZE"                   \
     -font "$FONT"                             \
     -fill "$COLOR"                            \
