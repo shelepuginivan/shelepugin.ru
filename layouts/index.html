@@ -1,13 +1,40 @@
 {{ define "main" }}
 
-<section class="text">
+<section class="home--section text">
     <h1>Привет!</h1>
-    <p>Добро пожаловать на мой сайт! Здесь собраны мои статьи, мысли на интересующие меня темы. А также тут представлены мои проекты.</p>
+    <p>
+        Добро пожаловать на мой сайт!
+        Здесь собраны мои статьи, мысли на интересующие меня темы.
+        А ещё тут представлены мои <a href="/projects">проекты</a>.
+    </p>
 </section>
-
-<section class="text">
+<section class="home--section text">
     <h2>Немного о себе</h2>
-    <p>Я увлечён разработкой и информатикой. Учусь, принимаю участие в конкурсах и олимпиадах по разным направлениям. В свободное время занимаюсь разными вещами: изучаю новое, пишу статьи, стихи, читаю книги и т.д.</p>
+    <p>
+        Я занимаюсь open-source разработкой и постоянно изучаю новое.
+        Linux-энтузиаст, сторонник свободного программного обеспечения.
+        Иногда (скорее даже редко) я пишу что-то в <a href="/blog">блог</a>,
+        в основном на темы, не связанные с программированием.
+    </p>
+    <ul class="home--social">
+        <li>
+            {{ partial "icon/mail" "currentColor" }} Email:
+            <a href="mailto:shelepuginivanm@gmail.com">shelepuginivanm@gmail.com</a>
+        </li>
+        <li>
+            {{ partial "icon/github" "currentColor" }} GitHub:
+            <a href="https://github.com/shelepuginivan">shelepuginivan</a>
+        </li>
+    </ul>
+</section>
+<section class="home--section text">
+    <h2>Пара слов о сайте</h2>
+    <p>
+        Текущая версия сайта написана с использованием фреймворка
+        <a href="https://gohugo.io" target="_blank">Hugo</a>.
+        Мне нравится концепция "минималистичного интернета" &mdash; порой не
+        стоит переусложнять веб-страницы, особенно если это небольшой блог.
+    </p>
 </section>
 
 {{ end }}

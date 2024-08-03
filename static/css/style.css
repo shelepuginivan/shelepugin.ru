@@ -63,6 +63,16 @@ body {
     margin: 0 auto;
 }
 
+.home--section {
+    margin-bottom: 64px;
+}
+
+.home--social li {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .footer > * {
     display: flex;
     flex-direction: column;
