@@ -20,7 +20,3 @@ menu:
       name: "Проекты"
       url: "/projects"
       weight: 20
-    - identifier: "links"
-      name: "Ссылки"
-      url: "/links"
-      weight: 30
