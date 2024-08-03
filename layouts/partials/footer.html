@@ -1,3 +1,25 @@
 <footer class="footer">
-    <p class="text-secondary">&copy; {{ dateFormat "2006" now }} {{ .Site.Title }}</p>
+    <p class="foooter-text text-secondary">
+        &copy; {{ .Site.Title }}. Дата сборки: {{ dateFormat "02.01.2006" now }}.
+        Будьте собой ✨
+    </p>
+    <nav>
+        <ul class="footer--social">
+            <li>
+                <a href="https://github.com/shelepuginivan" target="_blank">
+                    {{ partial "icon/github" "#b1b1c2" }}
+                </a>
+            </li>
+            <li>
+                <a href="mailto:shelepuginivanm@gmail.com">
+                    {{ partial "icon/mail" "#b1b1c2" }}
+                </a>
+            </li>
+            <li>
+                <a href="/index.xml" target="_blank">
+                    {{ partial "icon/rss" "#b1b1c2" }}
+                </a>
+            </li>
+        </ul>
+    </nav>
 </footer>
