@@ -72,6 +72,12 @@ body {
     margin-bottom: 64px;
 }
 
+.main .home--social {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 32px;
+}
+
 .home--social li {
     display: flex;
     align-items: center;
@@ -144,7 +150,7 @@ body {
     color: var(--text-1);
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 512px) {
     .header > .nav,
     .nav > .menu {
         flex-direction: column;
