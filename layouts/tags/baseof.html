@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="/css/tags.css" type="text/css" media="all" />
+    {{ if hugo.IsDevelopment }}
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{ else }}
+    <link rel="stylesheet" href="/css/tailwind.css">
+    {{ end }}
+    <link rel="stylesheet" href="/css/style.css">
     {{ partial "meta.html" . }}
 </head>
 <body>

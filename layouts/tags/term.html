@@ -1,9 +1,11 @@
 {{ define "main" }}
 
-<h1><span class="text-secondary">Тег:</span>{{ .Title }}</h1>
+<h1><span class="text-zinc-500">Тег:</span>{{ .Title }}</h1>
 
-{{ range.Data.Pages }}
-    {{ partial "post.html" . }}
-{{ end }}
+<div class="my-12">
+    {{ range.Data.Pages }}
+        {{ partial "post.html" . }}
+    {{ end }}
+</div>
 
 {{ end }}

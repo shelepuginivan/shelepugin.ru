@@ -2,7 +2,7 @@
 
 <h1>{{ .Title }}</h1>
 
-<div class="container tags-wrapper">
+<div class="flex flex-col gap-2 my-12">
     {{ range .Site.Taxonomies.tags.Alphabetical }}
         <a class="taglist-item" href="{{ printf "/tags/%s" .Name }}">{{ .Name }}</a>
     {{ end }}
