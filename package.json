@@ -12,7 +12,11 @@
     "bugs": {
         "url": "https://github.com/shelepuginivan/shelepugin.ru/issues"
     },
-    "scripts": {},
+    "scripts": {
+        "build": "npm run build:html && npm run build:css",
+        "build:html": "hugo",
+        "build:css": "tailwindcss -o ./static/css/tailwind.css --minify"
+    },
     "devDependencies": {
         "tailwindcss": "^3.4.9",
         "typescript": "^5.5.4"
