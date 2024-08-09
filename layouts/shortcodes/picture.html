@@ -1,4 +1,4 @@
-<figure class="flex flex-column items-center mb-12">
+<figure class="flex flex-col items-center mb-12">
     {{ $imageSrc := printf "img/%s" (.Get "source") }}
     {{ $image := resources.GetMatch $imageSrc }}
     {{ $small := $image.Resize "400x png" }}
