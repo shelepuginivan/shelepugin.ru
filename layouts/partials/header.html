@@ -1,11 +1,11 @@
-<header class="header">
-    <nav class="nav">
-        <a class="logo gradient-text" href="{{ .Site.BaseURL }}">
+<header class="header py-4">
+    <nav class="flex items-center justify-between flex-wrap gap-4 max-w-4xl mx-auto p-8">
+        <a class="header-logo" href="{{ .Site.BaseURL }}">
             {{ .Site.Title }}
         </a>
-        <ul class="menu">
+        <ul class="flex gap-6">
         {{ range.Site.Menus.main }}
-            <li class="menu-item">
+            <li>
                 <a href="{{ .URL }}">{{ .Name }}</a>
             </li>
         {{ end }}

@@ -1,10 +1,10 @@
-<footer class="footer">
-    <p class="foooter-text text-secondary">
+<footer class="py-12 flex flex-col items-center gap-3">
+    <p class="text-center foooter-text text-secondary">
         &copy; {{ .Site.Title }}. Дата сборки: {{ dateFormat "02.01.2006" now }}.
         Будьте собой ✨
     </p>
     <nav>
-        <ul class="footer--social">
+        <ul class="flex gap-3 text-2xl">
             <li>
                 <a href="https://github.com/shelepuginivan" target="_blank">
                     {{ partial "icon/github" "#b1b1c2" }}

@@ -7,6 +7,7 @@
     --accent-red: #E13E3B;
     --accent-orange: #EE903C;
     --accent-yellow: #FADF3D;
+    --gradient: linear-gradient(15deg, var(--accent-yellow), var(--accent-red));
     --transition: all .2s ease;
 }
 
@@ -22,7 +23,7 @@
 
 .turbo-progress-bar {
     height: 4px;
-    background: linear-gradient(45deg, var(--accent-red), var(--accent-yellow));
+    background: var(--gradient);
 }
 
 html,
@@ -30,34 +31,14 @@ body {
     height: 100%;
 }
 
+a {
+    text-decoration: underline;
+}
+
 .wrapper {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.header,
-.footer {
-    padding-block: 48px;
-}
-
-.nav {
-    display: flex;
-    width: 100%;
-    max-width: 896px;
-    padding: 32px;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.menu {
-    display: flex;
-    gap: 32px;
-}
-
-.menu .menu-item {
-    list-style-type: none;
 }
 
 .main {
@@ -68,55 +49,14 @@ body {
     margin: 0 auto;
 }
 
-.home--section {
-    margin-bottom: 64px;
-}
-
-.main .home--social {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 32px;
-}
-
-.home--social li {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.footer > * {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    width: 100%;
-    max-width: 896px;
-    padding: 16px;
-    margin: 0 auto;
-}
-
-.foooter-text {
-    text-align: center;
-}
-
-.footer--social {
-    display: flex;
-    gap: 12px;
-    list-style-type: none;
-    font-size: 28px;
-}
-
-.gradient-text {
-    background: var(--accent-red);
-    background: linear-gradient(to top left, var(--accent-red) 0%, var(--accent-yellow) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.logo {
+.header-logo {
     text-decoration: none;
     font-size: x-large;
     font-weight: bold;
+    background: var(--accent-red);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .text-secondary {
@@ -148,18 +88,6 @@ body {
 
 .text blockquote * {
     color: var(--text-1);
-}
-
-@media screen and (max-width: 512px) {
-    .header > .nav,
-    .nav > .menu {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .logo {
-        margin-bottom: 24px;
-    }
 }
 
 .picture {
