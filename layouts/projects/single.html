@@ -6,16 +6,4 @@
     {{ .Content }}
 </div>
 
-<div class="project-info">
-    {{ if .Params.Website }}
-        <p><i>Сайт проекта:</i> <a href="{{ .Params.Website }}">{{ .Params.Website }}</a></p>
-    {{ end }}
-    {{ if .Params.Repository }}
-        <p><i>Репозиторий:</i> <a href="{{ .Params.Repository }}">{{ .Params.Repository }}</a></p>
-    {{ end }}
-    <div class="badges-wrapper">
-        <i>Технологии:</i> {{ partial "badges.html" .Params.Badges }}
-    </div>
-</div>
-
 {{ end }}
