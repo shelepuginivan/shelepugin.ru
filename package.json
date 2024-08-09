@@ -1,0 +1,16 @@
+{
+    "name": "shelepugin.ru",
+    "author": "shelepuginivan",
+    "homepage": "https://shelepugin.ru",
+    "version": "1.0.0",
+    "description": "shelepuginivan's personal website and blog",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shelepuginivan/shelepugin.ru.git"
+    },
+    "bugs": {
+        "url": "https://github.com/shelepuginivan/shelepugin.ru/issues"
+    },
+    "scripts": {}
+}
