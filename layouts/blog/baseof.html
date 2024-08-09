@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" />
+    <script type="module" src="https://cdn.shelepugin.ru/w/js/turbo@8.0.5.mjs"></script>
+    {{ if hugo.IsDevelopment }}
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{ else }}
+    <link rel="stylesheet" href="/css/tailwind.css">
+    {{ end }}
+    <link rel="stylesheet" href="/css/style.css">
     {{ partial "meta.html" . }}
 </head>
 <body>
