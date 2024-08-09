@@ -2,11 +2,7 @@
 <html lang="ru">
 <head>
     <script type="module" src="https://cdn.shelepugin.ru/w/js/turbo@8.0.5.mjs"></script>
-    {{ if hugo.IsDevelopment }}
-    <script src="https://cdn.tailwindcss.com"></script>
-    {{ else }}
     <link rel="stylesheet" href="/css/tailwind.css">
-    {{ end }}
     <link rel="stylesheet" href="/css/style.css">
     {{ partial "meta.html" . }}
 </head>

@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    {{ if hugo.IsDevelopment }}
-    <script src="https://cdn.tailwindcss.com"></script>
-    {{ else }}
     <link rel="stylesheet" href="/css/tailwind.css">
-    {{ end }}
     <link rel="stylesheet" href="/css/style.css">
     {{ partial "meta.html" . }}
 </head>
