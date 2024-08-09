@@ -9,8 +9,8 @@
     {{ .Content }}
 </div>
 
-<div class="taglist-wrapper">
-    Теги: {{ partial "taglist.html" .Params.tags }} <a class="text-secondary" href="/tags">(Все теги)</a>
-</div>
+<nav class="flex flex-wrap items-center gap-2 mt-16">
+    {{ partial "taglist.html" .Params.tags }} <a class="text-secondary" href="/tags">(Все теги)</a>
+</nav>
 
 {{ end }}
