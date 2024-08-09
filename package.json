@@ -13,7 +13,7 @@
         "url": "https://github.com/shelepuginivan/shelepugin.ru/issues"
     },
     "scripts": {
-        "build": "npm run build:html && npm run build:css",
+        "build": "npm run build:css && npm run build:html",
         "build:html": "hugo",
         "build:css": "tailwindcss -o ./static/css/tailwind.css --minify",
         "dev": "hugo server",
