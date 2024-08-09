@@ -26,3 +26,8 @@ Hakutest для любой задачи, требующей автоматиче
 - **Кроссплатформенность**: Скомпилированные пакеты доступны для Windows, Linux
   и macOS.
 - **Свобода**: Hakutest &mdash; бесплатное ПО с открытым исходным кодом.
+
+{{< aside-more >}}
+<p><i>Репозиторий</i>: <a href="https://github.com/shelepuginivan/hakutest" target="_blank">shelepuginivan/hakutest</a></p>
+<p><i>Сайт</i>: <a href="https://hakutest.shelepugin.ru/ru" target="_blank">hakutest.shelepugin.ru</a></p>
+{{< /aside-more >}}

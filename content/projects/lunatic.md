@@ -10,5 +10,17 @@ badges:
     name: npm
 ---
 
-Lunatic &mdash; гибкий и расширяемый backend-фреймворк, написанный на
-TypeScript.
+Lunatic &mdash; скромный, гибкий и расширяемый backend-фреймворк, написанный на
+TypeScript. Его отличают отсутствие зависимостей, высокая скорость работы и
+полностью протестированная кодовая база.
+
+Хотя я создавал этот проект в целях обучения &mdash; мне хотелось лучше понять,
+как такие фреймворки работают "под капотом" &mdash; его можно использовать для
+небольших проектов. Удобный API Lunatic'а позволит быстро создать и развернуть
+веб-сервер.
+
+{{< aside-more >}}
+<p><i>Примеры</i>: <a href="https://github.com/shelepuginivan/lunatic-examples" target="_blank">shelepuginivan/lunatic-examples</a></p>
+<p><i>Репозиторий</i>: <a href="https://github.com/shelepuginivan/lunatic" target="_blank">shelepuginivan/lunatic</a></p>
+<p><i>Документация</i>: <a href="https://lunatic.shelepugin.ru/ru" target="_blank">lunatic.shelepugin.ru</a></p>
+{{< /aside-more >}}
