@@ -1,4 +1,4 @@
-<figure class="picture">
+<figure class="flex flex-column items-center mb-12">
     {{ $imageSrc := printf "img/%s" (.Get "source") }}
     {{ $image := resources.GetMatch $imageSrc }}
     {{ $small := $image.Resize "400x png" }}
@@ -11,5 +11,5 @@
         <source srcset="{{ $large.RelPermalink }}" media="(max-width: 1024px)" type="image/png">
         <img src="{{ $maxres.RelPermalink }}" alt="{{ .Inner }}" loading="lazy">
     </picture>
-    <figcaption>{{ .Inner }}</figcaption>
+    <figcaption class="text-center text-sm text-zinc-400">{{ .Inner }}</figcaption>
 </figure>
