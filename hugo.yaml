@@ -1,6 +1,7 @@
 baseURL: "https://shelepugin.ru/"
 languageCode: "ru"
 title: "Иван Шелепугин"
+summaryLength: 24
 
 params:
   description: "Личный сайт и блог Ивана Шелепугина."
