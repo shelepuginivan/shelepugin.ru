@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2022-03-20T23:05:48+03:00
 type: blog
 image:
-    source: "about-tears-and-crying-social.png"
+    source: "about-tears-and-crying.png"
     alt: "Про плач и слёзы"
 tags:
   - наука

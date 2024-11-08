@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2024-04-15T14:20:06+03:00
 type: blog
 image:
-    source: "hackathon-13-04-2024-social.png"
+    source: "hackathon-13-04-2024.png"
     alt: "Хакатон 13-14 апреля 2024"
 tags:
   - разработка

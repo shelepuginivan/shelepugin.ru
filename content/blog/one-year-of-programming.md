@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2023-04-11T01:44:11.044+03:00
 type: blog
 image:
-    source: "one-year-of-programming-social.png"
+    source: "one-year-of-programming.png"
     alt: "Спустя год изучения программирования"
 tags:
   - разработка

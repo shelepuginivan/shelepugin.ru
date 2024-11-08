@@ -7,7 +7,7 @@
 <meta name="og:locale" content="{{ .Site.LanguageCode }}" />
 
 {{ if .Params.Image }}
-{{ $imgSrc := printf "img/%s" .Params.Image.Source }}
+{{ $imgSrc := printf "social/%s" .Params.Image.Source }}
 <meta name="og:image" content="{{ (resources.GetMatch $imgSrc).Permalink }}" />
 <meta name="og:image:alt" content="{{ .Params.Image.Alt }}" />
 <meta name="twitter:card" content="summary_large_image" />

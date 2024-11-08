@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2022-04-01T06:04:59+03:00
 type: blog
 image:
-    source: "human-limits-social.png"
+    source: "human-limits.png"
     alt: "Человеческие пределы"
 tags:
   - наука

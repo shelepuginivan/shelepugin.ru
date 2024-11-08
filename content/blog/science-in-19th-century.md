@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2022-07-19T23:05:48+03:00
 type: blog
 image:
-    source: "science-in-19th-century-social.png"
+    source: "science-in-19th-century.png"
     alt: "История науки 19 века"
 tags:
   - наука

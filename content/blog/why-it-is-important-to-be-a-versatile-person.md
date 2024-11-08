@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2022-08-05T23:05:48+03:00
 type: blog
 image:
-    source: "why-it-is-important-to-be-a-versatile-social.png"
+    source: "why-it-is-important-to-be-a-versatile.png"
     alt: "Почему важно быть разносторонним человеком"
 tags:
   - образование

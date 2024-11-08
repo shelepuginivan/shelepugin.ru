@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: {{ .Date }}
 type: blog
 image:
-    source: "{{ .File.BaseFileName }}-social.png"
+    source: "{{ .File.BaseFileName }}.png"
     alt: ""
 tags:
   - 

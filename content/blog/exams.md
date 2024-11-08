@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2024-08-05T11:27:29+03:00
 type: blog
 image:
-    source: "exams-social.png"
+    source: "exams.png"
     alt: "Как я ЕГЭ сдавал"
 tags:
   - образование

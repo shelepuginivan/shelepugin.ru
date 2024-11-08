@@ -4,7 +4,7 @@ author: "Иван Шелепугин"
 date: 2023-05-17T23:00:37+03:00
 type: blog
 image:
-    source: "10th-grade-final-essay-social.png"
+    source: "10th-grade-final-essay.png"
     alt: "Итоговое сочинение в 10-м классе"
 tags:
   - образование
