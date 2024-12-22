@@ -3,7 +3,11 @@
     --text: #efeef0;
     --text-1: #b1b1c2;
     --gray: #444;
+
+    --sky: #38bdf8;
+
     --accent-red: #E13E3B;
+    --accent-redorange: #ef4444;
     --accent-orange: #EE903C;
     --accent-yellow: #FADF3D;
     --gradient: linear-gradient(15deg, var(--accent-yellow), var(--accent-red));
@@ -26,9 +30,6 @@ body {
     background: var(--bg);
 }
 
-a {
-    text-decoration: underline;
-}
 
 h1, h2, h3 {
     font-weight: bold;
@@ -53,6 +54,7 @@ hr {
 code {
     display: inline-block;
     padding: 1px 3px;
+    font-family: 1em;
     background: var(--gray);
 }
 
@@ -83,7 +85,6 @@ code * {
 .header-logo {
     text-decoration: none;
     font-size: x-large;
-    font-weight: bold;
     background: var(--accent-red);
     background: var(--gradient);
     -webkit-background-clip: text;
@@ -92,6 +93,23 @@ code * {
 
 .text > * {
     margin: 16px 0;
+}
+
+.text {
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+.text a {
+    text-decoration-color: var(--accent-redorange);
+    text-decoration-line: underline;
+    text-decoration-thickness: 8%;
+    text-decoration-style: dashed;
+    text-underline-offset: 5px;
+}
+
+.text a:hover {
+    color: var(--accent-redorange);
 }
 
 .text ul,
@@ -113,10 +131,18 @@ code * {
 }
 
 .text blockquote {
-    padding-left: 8px;
+    padding-left: 16px;
     border-left: 1px solid var(--text-1);
 }
 
 .text blockquote * {
     color: var(--text-1);
+}
+
+.aside-more a {
+    text-decoration-color: var(--sky);
+}
+
+.aside-more a:hover {
+    color: var(--sky);
 }
