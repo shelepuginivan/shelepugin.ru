@@ -192,7 +192,7 @@ href="https://vk.com/education_spbstu">Образовательных интен
 значит, все усилия были приложены не зря.
 
 - [Презентация](https://cdn.shelepugin.ru/d/pdf/hieda.pdf)
-- [Репозиторий GitHub](https://github.com/pinkphantasm/hieda)
+- [Репозиторий GitHub](https://github.com/shelepuginivan/hieda)
 - [Откуда взялось название "Hieda"](https://ru.touhouwiki.net/wiki/Хиэда-но_Акю)
 
 ## Заключение
