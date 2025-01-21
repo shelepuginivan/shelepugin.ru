@@ -11,6 +11,10 @@ params:
 taxonomies:
   tag: "tags"
 
+services:
+  rss:
+    limit: 15
+
 menu:
   main:
     - identifier: "blog"
