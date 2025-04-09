@@ -1,27 +1,14 @@
 {
-    "name": "shelepugin.ru",
-    "author": "shelepuginivan",
-    "homepage": "https://shelepugin.ru",
-    "version": "1.0.0",
-    "description": "shelepuginivan's personal website and blog",
-    "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/shelepuginivan/shelepugin.ru.git"
-    },
-    "bugs": {
-        "url": "https://github.com/shelepuginivan/shelepugin.ru/issues"
-    },
-    "scripts": {
-        "build": "npm run build:css && npm run build:html",
-        "build:html": "hugo",
-        "build:css": "tailwindcss -o ./static/css/tailwind.css --minify",
-        "dev": "hugo server",
-        "preview": "serve ./public"
-    },
-    "devDependencies": {
-        "serve": "^14.2.3",
-        "tailwindcss": "^3.4.9",
-        "typescript": "^5.5.4"
-    }
+  "name": "shelepugin.ru",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.6.1"
+  }
 }
