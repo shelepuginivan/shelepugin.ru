@@ -1,0 +1,76 @@
+---
+id: color
+title: Color
+description: Библиотека для работы с цветом для Go
+
+status: stable
+
+order: 3
+
+stack:
+    - Go
+---
+
+import AsideMore from '@components/AsideMore.astro'
+import ExternalLink from '@components/ExternalLink.astro'
+
+# Color
+
+`color` -- это пакет, реализующий различные методы для работы с цветом
+(математику цвета). Мне хотелось разобраться, как математически связаны
+различные цветовые пространства (RGB, HSL, CMYK и др.), что и стало причиной,
+по которой я разработал данную библиотеку.
+
+Программа ниже демонстрирует часть возможностей библиотеки.
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/shelepuginivan/color"
+)
+
+func main() {
+	// Парсинг цветов из CSS-подобных функций.
+	scarlet := color.Must(color.Parse("hsl(8deg, 100%, 50%)"))
+
+	// Генерация светлых и темных оттенков, а также тонов.
+	for _, tone := range color.Tones(scarlet, 5) {
+		// Преобразования на цветовом круге.
+		c1, c2 := color.SplitComplementary(tone)
+
+		fmt.Println(tone.Hex(), c1.Hex(), c2.Hex())
+	}
+
+	mint := color.NewRGB(209, 227, 217)
+
+	// Смешивание цветов в различных цветовых пространствах.
+	peach := color.MixLab(scarlet, mint)
+
+	// Конвертация цветов в различные форматы.
+	fmt.Println(peach.XYZWithWhitepoint(color.D55))
+}
+```
+
+Особенности библиотеки:
+
+- Простой и последовательный API
+- Парсинг цветов из CSS-подобных функций
+- Расчёт контраста, яркости цвета
+- Получение тонов и оттенков
+
+Наиболее сложным аспектом разработки был поиск спецификаций и их реализация.
+Хотя конвертация между распространёнными форматами является тривиальной, для
+перехода в некоторые цветовые пространство требуется использование формул из
+высшей математики. Так, преобразование из RGB в <ExternalLink
+href="https://en.wikipedia.org/wiki/CIE_1931_color_space">XYZ</ExternalLink>
+требует векторизации каналов цвета и умножения полученных векторов на матрицу.
+
+<AsideMore>
+
+- **Репозиторий:** <ExternalLink href="https://github.com/shelepuginivan/color">shelepuginivan/color</ExternalLink>
+- **Документация:** <ExternalLink href="https://pkg.go.dev/github.com/shelepuginivan/color">pkg.go.dev</ExternalLink>
+
+</AsideMore>
