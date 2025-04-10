@@ -1,0 +1,29 @@
+---
+import '../styles/global.css'
+
+import ArticleInfo from '@components/ArticleInfo.astro'
+import Footer from '@components/Footer.astro'
+import Header from '@components/Header.astro'
+
+const { frontmatter } = Astro.props
+---
+
+<!doctype html>
+<html lang='ru'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width' />
+        <title>{frontmatter.title} | Иван Шелепугин</title>
+    </head>
+    <body class='bg-stone-900 flex flex-col h-screen text-stone-50'>
+        <Header />
+        <main class='mb-auto mx-auto w-full max-w-7xl p-8 pt-32 prose prose-stone prose-invert prose-xl'>
+            <h1>{frontmatter.title}</h1>
+            <ArticleInfo
+                date={frontmatter.date}
+            />
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
