@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Icon } from 'astro-icon/components'
+
+const {
+    title,
+    summary,
+    id,
+    date,
+} = Astro.props
+---
+
+<a
+    class="not-prose flex items-center justify-between text-neutral-300 border border-stone-700 rounded-lg p-6 hover:border-stone-200 hover:text-stone-50 mt-4"
+    href={`/blog/${id}`}
+>
+    <div class="flex flex-col gap-4">
+        <h3 class="text-3xl">{title}</h3>
+        <p>{summary}</p>
+        <p>Читать далее...</p>
+    </div>
+    <Icon name="carbon:chevron-right" size="24px" />
+</a>

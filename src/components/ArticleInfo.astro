@@ -1,0 +1,12 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const { date } = Astro.props
+---
+
+<div>
+    <p class="flex items-center gap-1 mb-40">
+        <Icon name="carbon:calendar" color="#a8a29e" />
+        <span class="text-stone-400">Опубликовано: {new Date(date).toLocaleDateString('ru')}</span>
+    </p>
+</div>
