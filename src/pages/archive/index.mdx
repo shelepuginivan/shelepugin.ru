@@ -1,0 +1,29 @@
+---
+layout: '@layouts/Layout.astro'
+title: Архив
+---
+
+import { getCollection } from 'astro:content'
+import ArticleCard from '@components/ArticleCard.astro'
+
+# Архив
+
+Это мои старые записи и статьи. Я убрал их из основного блога, так как они
+слабо связаны с тем, чем я занимаюсь сейчас. Однако они, на мой взгляд, ценны
+для исторических целей. Некоторые писатели оставляют свои старые записи, чтобы
+запечатлеть многолетний прогресс.
+
+Возможно, вы найдёте что-то интересное.
+
+<br />
+
+{(await getCollection('archive')).sort((a, b) => b.data.date - a.data.date).map(article => (
+
+<ArticleCard
+    title={article.data.title}
+    summary={article.data.summary}
+    id={article.data.id}
+    date={article.data.date}
+    archive={true}
+/>
+))}

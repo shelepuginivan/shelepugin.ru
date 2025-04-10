@@ -9,4 +9,8 @@ const projects = defineCollection({
     loader: glob({ pattern: '**/*.mdx', base: './src/data/projects' }),
 })
 
-export const collections = { blog, projects }
+const archive = defineCollection({
+    loader: glob({ pattern: '**/*.mdx', base: './src/data/archive' }),
+})
+
+export const collections = { archive, blog, projects }

@@ -6,16 +6,16 @@
 
 .prose :not(.astro-code) code::before,
 .prose :not(.astro-code) code::after {
-    content: "";
+    content: '';
     display: none;
 }
 
-.prose a:hover {
+.prose :not(.card) a:hover {
     color: #f87171;
 }
 
 blockquote p::before,
 blockquote p::after {
-    content: "";
+    content: '';
     display: none;
 }

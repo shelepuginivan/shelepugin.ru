@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from 'astro:content';
+
+import Blog from '@layouts/Blog.astro'
+
+export async function getStaticPaths() {
+    const posts = await getCollection('archive');
+    return posts.map(article => ({
+        params: { id: article.id },
+        props: { article },
+    }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<Blog frontmatter={article.data}>
+    <Content />
+</Blog>
