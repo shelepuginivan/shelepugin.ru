@@ -3,13 +3,13 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <footer class="border-t border-stone-800 text-neutral-300">
-    <div class="flex items-center justify-between max-w-7xl p-6 mx-auto">
-        <p>&copy; Иван Шелепугин, {new Date().getFullYear()}</p>
+    <div class="flex flex-wrap items-center justify-between max-w-7xl p-6 mx-auto max-[640px]:flex-col  max-[640px]:gap-4">
+        <p class="min-w-3xs max-[640px]:text-center">&copy; Иван Шелепугин, {new Date().getFullYear()}</p>
         <div>
             <a href="https://github.com/shelepuginivan" target="_blank">
                 <Icon name="carbon:logo-github" size="24px" />
             </a>
         </div>
-        <p>Будьте собой ✨</p>
+        <p class="min-w-3xs text-right max-[640px]:text-center">Будьте собой ✨</p>
     </div>
 </footer>
