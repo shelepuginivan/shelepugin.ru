@@ -3,14 +3,40 @@ layout: ../layouts/Layout.astro
 title: Hello
 ---
 
-# Yay very cool
+import CardLink from '@components/CardLink.astro'
+import CardGrid from '@components/CardGrid.astro'
 
-```go
-package main
+# Привет
 
-import "fmt"
+Я занимаюсь open-source разработкой и постоянно изучаю что-то новое. Мне
+нравится разбираться в том, как вещи работают «под капотом», и это касается не
+только технологий. Linux-энтузиаст, сторонник свободного программного
+обеспечения. Иногда (скорее даже редко) я пишу что-то в блог, в том числе на
+темы, не связанные с программированием.
 
-func main() {
-    fmt.Println("Hello, World!")
-}
-```
+Этот сайт -- мой крохотный интернет-уголок, где я делюсь своими мыслями. Здесь
+вы можете найти мои статьи и обзоры некоторых проектов, над которыми я работал
+ранее или работаю в данный момент.
+
+## Ищете что-то?
+
+<CardGrid>
+    <CardLink title="Блог" description="Статьи на разные темы" href="/blog" />
+    <CardLink
+        title="Проекты"
+        description="Посмотреть мои проекты"
+        href="/projects"
+    />
+    <CardLink
+        title="Вики"
+        description="Моя база знаний"
+        href="https://wiki.shelepugin.ru"
+        target="_blank"
+    />
+    <CardLink
+        title="GitHub"
+        description="Мой GitHub"
+        href="https://github.com/shelepuginivan"
+        target="_blank"
+    />
+</CardGrid>
