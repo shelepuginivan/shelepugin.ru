@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
 
 // Astro integrations.
 import icon from 'astro-icon'
@@ -9,6 +9,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
     integrations: [mdx(), icon()],
+
+    image: {
+        service: passthroughImageService(),
+    },
 
     markdown: {
         shikiConfig: {
