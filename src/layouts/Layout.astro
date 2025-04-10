@@ -1,10 +1,13 @@
 ---
 import '../styles/global.css'
 
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+
 const { frontmatter } = Astro.props
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
@@ -12,12 +15,11 @@ const { frontmatter } = Astro.props
         <link rel="stylesheet" href="/tailwind.css">
         <title>{frontmatter.title}</title>
 	</head>
-    <body>
-        <header>
-            <h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
-        </header>
-		<slot />
+    <body class="bg-stone-900 flex flex-col h-screen text-stone-50">
+        <Header />
+        <main class="mb-auto mx-auto w-full max-w-7xl p-8 pt-32 prose prose-stone prose-invert prose-lg">
+		    <slot />
+        </main>
+        <Footer />
 	</body>
 </html>
