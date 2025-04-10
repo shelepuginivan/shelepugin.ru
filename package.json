@@ -25,6 +25,7 @@
     },
     "devDependencies": {
         "@iconify-json/carbon": "^1.2.8",
+        "@iconify-json/mage": "^1.2.2",
         "@tailwindcss/typography": "^0.5.16",
         "prettier": "3.5.3"
     }
