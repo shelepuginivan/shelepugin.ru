@@ -1,0 +1,9 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const { href } = Astro.props
+---
+
+<a href={href} target="_blank" class="inline-flex items-center gap-1">
+    <span><slot /></span> <Icon name="mage:external-link" color="#a8a29e" />
+</a>
