@@ -8,8 +8,15 @@ import mdx from '@astrojs/mdx'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+    integrations: [mdx(), icon()],
+
+    markdown: {
+        shikiConfig: {
+            theme: 'gruvbox-dark-soft',
+        },
+    },
+
     vite: {
         plugins: [tailwindcss()],
     },
-    integrations: [mdx(), icon()],
 })
