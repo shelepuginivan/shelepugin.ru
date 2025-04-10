@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import { projectStatus } from '@utils/projectStatus'
+
+const {
+    title,
+    description,
+    id,
+    stack = [],
+    status,
+} = Astro.props
+
+const [statusText, statusColor] = projectStatus(status)
+---
+
+<a
+    class="not-prose flex items-center justify-between text-neutral-300 border border-stone-700 rounded-lg p-6 hover:border-stone-200 hover:text-stone-50 mt-4"
+    href={`/projects/${id}`}
+>
+    <div class="flex flex-col gap-4">
+        <h3 class="text-3xl">{title}</h3>
+        <p>{description}</p>
+
+        <div class="flex flex-wrap gap-6 mt-4">
+            <p 
+                class="text-base text-stone-800 py-1 px-2 rounded"
+                style={{ backgroundColor: statusColor }}
+            >
+                {statusText}
+            </p>
+            <div class="flex flex-wrap gap-2">
+                {stack.map(technology => (
+                    <p class="bg-stone-700 text-base text-neutral-300 py-1 px-2 rounded">{technology}</p>
+                ))}
+            </div>
+        </div>
+    </div>
+    <Icon name="carbon:chevron-right" size="24px" />
+</a>
