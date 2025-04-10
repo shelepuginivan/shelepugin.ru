@@ -12,13 +12,11 @@ const { frontmatter } = Astro.props
     <head>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width' />
-        <title>{frontmatter.title}</title>
+        <title>{frontmatter.title} | Иван Шелепугин</title>
     </head>
     <body class='bg-stone-900 flex flex-col h-screen text-stone-50'>
         <Header />
-        <main
-            class='mb-auto mx-auto w-full max-w-7xl p-8 pt-32 prose prose-stone prose-invert prose-xl'
-        >
+        <main class='mb-auto mx-auto w-full max-w-7xl p-8 pt-32 prose prose-stone prose-invert prose-xl'>
             <slot />
         </main>
         <Footer />
