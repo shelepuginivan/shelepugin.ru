@@ -1,0 +1,25 @@
+---
+layout: '@layouts/Layout.astro'
+title: Проекты
+---
+
+import { getCollection } from 'astro:content'
+import ProjectCard from '@components/ProjectCard.astro'
+
+# Проекты
+
+Некоторые из моих проектов. Нажмите на карточку проекта, чтобы открыть
+соответствующую страницу.
+
+<br />
+
+{(await getCollection('projects')).sort((a, b) => a.data.order - b.data.order).map(project => (
+
+<ProjectCard
+    title={project.data.title}
+    description={project.data.description}
+    id={project.data.id}
+    stack={project.data.stack}
+    status={project.data.status}
+/>
+))}
