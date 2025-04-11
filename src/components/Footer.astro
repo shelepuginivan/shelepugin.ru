@@ -5,9 +5,33 @@ import { Icon } from 'astro-icon/components'
 <footer class="border-t border-stone-800 text-neutral-300">
     <div class="flex flex-wrap items-center justify-between max-w-7xl p-6 mx-auto max-[640px]:flex-col  max-[640px]:gap-4">
         <p class="min-w-3xs max-[640px]:text-center">&copy; Иван Шелепугин, {new Date().getFullYear()}</p>
-        <div>
-            <a class="hover:text-red-400" href="https://github.com/shelepuginivan" target="_blank">
-                <Icon aria-label="GitHub" name="carbon:logo-github" size="24px" />
+        <div class="flex items-center gap-3">
+            <a
+                class="hover:text-red-400"
+                href="https://github.com/shelepuginivan"
+                target="_blank"
+                title: "GitHub"
+                aria-label="GitHub"
+            >
+                <Icon name="carbon:logo-github" size="24px" />
+            </a>
+            <a
+                class="hover:text-red-400"
+                href="mailto:shelepuginivanm@gmail.com"
+                target="_blank"
+                title="Email"
+                aria-label="Email"
+            >
+                <Icon name="carbon:email" size="28px" />
+            </a>
+            <a
+                class="hover:text-red-400"
+                href="/feed.xml"
+                target="_blank"
+                title="RSS"
+                aria-label="RSS"
+            >
+                <Icon name="carbon:rss" size="22px" />
             </a>
         </div>
         <p class="min-w-3xs text-right max-[640px]:text-center">Будьте собой ✨</p>
