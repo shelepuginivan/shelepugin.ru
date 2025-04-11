@@ -14,8 +14,20 @@
     color: #f87171;
 }
 
-blockquote p::before,
-blockquote p::after {
+.prose blockquote p::before,
+.prose blockquote p::after {
     content: '';
     display: none;
+}
+
+.prose kbd {
+    font-family: monospace;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    box-shadow: none;
+    border: 1px solid #78716c;
+}
+
+.not-prose kbd {
+    border: none;
 }
