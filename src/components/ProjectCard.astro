@@ -15,7 +15,7 @@ const [statusText, statusColor] = projectStatus(status)
 ---
 
 <a
-    class="not-prose flex items-center justify-between text-neutral-300 border border-stone-700 rounded-lg p-6 hover:border-stone-200 hover:text-stone-50 mt-4"
+    class="card not-prose flex items-center justify-between text-neutral-300 border border-stone-700 rounded-lg p-6 hover:border-stone-200 hover:text-stone-50 mt-4"
     href={`/projects/${id}`}
 >
     <div class="flex flex-col gap-4">
@@ -36,5 +36,17 @@ const [statusText, statusColor] = projectStatus(status)
             </div>
         </div>
     </div>
-    <Icon name="carbon:chevron-right" size="24px" />
+    <div class="icon-wrap flex flex-col items-end min-w-8">
+        <Icon name="carbon:chevron-right" size="24px" />
+    </div>
 </a>
+
+<style>
+    .icon-wrap {
+        transition: transform .2s ease;
+    }
+
+    .card:hover .icon-wrap {
+        transform: translateX(4px);
+    }
+</style>
