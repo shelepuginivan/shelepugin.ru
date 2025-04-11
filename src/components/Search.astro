@@ -1,0 +1,50 @@
+---
+import Search from 'astro-pagefind/components/Search'
+---
+
+<div id="search-modal" class="fixed hidden w-full h-full py-32 backdrop-blur-sm">
+    <div id="search-modal-content" class="mx-auto rounded-lg overflow-scroll h-full w-4xl">
+        <Search uiOptions={{ showImages: false }} />
+    </div>
+</div>
+
+<style is:global>
+    #search-modal * {
+        --pagefind-ui-border: #292524;
+        --pagefind-ui-border-width: 1px;
+        --pagefind-ui-background: #1c1917;
+        --pagefind-ui-text: #fafaf9;
+        --pagefind-ui-border-radius: 0;
+    }
+
+    #search-modal {
+        background-color: rgba(68, 64, 60, .3);
+    }
+    
+    #search-modal .pagefind-ui__search-input {
+        outline: none;
+    }
+
+    #search-modal .pagefind-ui__message {
+        color: #a8a29e;
+        padding: 8px;
+    }
+
+    #search-modal .pagefind-ui__drawer {
+        color: var(--pagefind-ui-text);
+        background-color: var(--pagefind-ui-background);
+    }
+
+    #search-modal .pagefind-ui__result {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    #search-modal mark {
+        background-color: #f87171;
+    }
+
+    #search-modal .pagefind-ui__button {
+        color: #a8a29e;
+    }
+</style>

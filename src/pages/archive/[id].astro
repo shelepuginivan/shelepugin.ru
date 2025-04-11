@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 
-import Blog from '@layouts/Blog.astro'
+import Archive from '@layouts/Archive.astro'
 
 export async function getStaticPaths() {
     const posts = await getCollection('archive');
@@ -15,6 +15,6 @@ const { article } = Astro.props;
 const { Content } = await render(article);
 ---
 
-<Blog frontmatter={article.data}>
+<Archive frontmatter={article.data}>
     <Content />
-</Blog>
+</Archive>

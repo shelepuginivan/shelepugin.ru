@@ -1,2 +1,7 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
+
+body.noscroll {
+    height: 100%;
+    overflow: hidden;
+}

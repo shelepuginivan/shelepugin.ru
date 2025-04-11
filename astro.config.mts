@@ -1,14 +1,15 @@
 import { defineConfig, passthroughImageService } from 'astro/config'
 
 // Astro integrations.
-import icon from 'astro-icon'
 import mdx from '@astrojs/mdx'
+import icon from 'astro-icon'
+import pagefind from 'astro-pagefind'
 
 // Vite plugins.
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-    integrations: [mdx(), icon()],
+    integrations: [mdx(), icon(), pagefind()],
 
     image: {
         service: passthroughImageService(),
