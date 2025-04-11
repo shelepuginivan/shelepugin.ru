@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+    label: string
+    href: string
+    position: number
+}
+
+const { label, href, position } = Astro.props
+---
+
+<div class="flex items-center gap-1">
+    <Icon name="carbon:chevron-right" color="#78716c" />
+    <li 
+        class="list-none flex items-center"
+        itemscope
+        itemprop="itemListElement"
+        itemtype="https://schema.org/ListItem"
+    >
+        <a class="no-underline text-base text-stone-200" href={href} itemprop="item">
+            <span itemprop="name">{label}</span>
+        </a>
+        <meta itemprop="position" content={position} />
+    </li>
+</div>

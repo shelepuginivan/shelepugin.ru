@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon/components'           
+import BreadcrumbsItem from '@components/BreadcrumbsItem.astro'
+
+interface Props {
+    items: BreadcrumbsItem[]
+}
+
+const { items } = Astro.props
+---
+
+<nav>
+    <ol
+        class="non-prose flex items-center gap-1 p-0"
+        itemscope 
+        itemtype="https://schema.org/BreadcrumbList"
+    >
+        <li class="list-none">
+            <a href="/">
+                <Icon name="carbon:home" size="16px"/>
+            </a>
+        </li>
+        {items.map((item, index) => (
+            <BreadcrumbsItem label={item.label} href={item.href} position={index+2} />
+        ))}
+    </ol>
+</nav>
