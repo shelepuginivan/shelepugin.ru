@@ -1,10 +1,13 @@
 ---
 layout: ../layouts/Layout.astro
-title: Hello
+title: Главная страница
 ---
 
+import ArticleCard from '@components/ArticleCard.astro'
 import CardLink from '@components/CardLink.astro'
 import CardGrid from '@components/CardGrid.astro'
+
+import { latestPost } from '@utils/latestPost'
 
 # Привет
 
@@ -21,7 +24,11 @@ import CardGrid from '@components/CardGrid.astro'
 ## Ищете что-то?
 
 <CardGrid>
-    <CardLink title="Блог" description="Статьи на разные темы" href="/blog" />
+    <CardLink
+        title="Блог"
+        description="Статьи и посты на разные темы"
+        href="/blog"
+    />
     <CardLink
         title="Проекты"
         description="Посмотреть мои проекты"
@@ -40,3 +47,7 @@ import CardGrid from '@components/CardGrid.astro'
         target="_blank"
     />
 </CardGrid>
+
+## Последний пост
+
+<ArticleCard {...(await latestPost())} />
