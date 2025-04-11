@@ -6,28 +6,25 @@ title: Проекты
 import { getCollection } from 'astro:content'
 import Breadcrumbs from '@components/Breadcrumbs.astro'
 import ProjectCard from '@components/ProjectCard.astro'
+import ContentList from '@components/ContentList.astro'
 
-
-<Breadcrumbs
-    items={[
-        { label: 'Проекты', href: '/projects' },
-    ]}
-/>
+<Breadcrumbs items={[{ label: 'Проекты', href: '/projects' }]} />
 
 # Проекты
 
 Некоторые из моих проектов. Нажмите на карточку проекта, чтобы открыть
 соответствующую страницу.
 
-<br />
-
-{(await getCollection('projects')).sort((a, b) => a.data.order - b.data.order).map(project => (
-
-<ProjectCard
-    title={project.data.title}
-    description={project.data.description}
-    id={project.data.id}
-    stack={project.data.stack}
-    status={project.data.status}
-/>
-))}
+<ContentList>
+    {(await getCollection('projects'))
+        .sort((a, b) => a.data.order - b.data.order)
+        .map((project) => (
+            <ProjectCard
+                title={project.data.title}
+                description={project.data.description}
+                id={project.data.id}
+                stack={project.data.stack}
+                status={project.data.status}
+            />
+        ))}
+</ContentList>

@@ -6,13 +6,9 @@ title: Архив
 import { getCollection } from 'astro:content'
 import ArticleCard from '@components/ArticleCard.astro'
 import Breadcrumbs from '@components/Breadcrumbs.astro'
+import ContentList from '@components/ContentList.astro'
 
-
-<Breadcrumbs
-    items={[
-        { label: 'Архив', href: '/archive' },
-    ]}
-/>
+<Breadcrumbs items={[{ label: 'Архив', href: '/archive' }]} />
 
 # Архив
 
@@ -23,15 +19,16 @@ import Breadcrumbs from '@components/Breadcrumbs.astro'
 
 Возможно, вы найдёте что-то интересное.
 
-<br />
-
-{(await getCollection('archive')).sort((a, b) => b.data.date - a.data.date).map(article => (
-
-<ArticleCard
-    title={article.data.title}
-    summary={article.data.summary}
-    id={article.data.id}
-    date={article.data.date}
-    archive={true}
-/>
-))}
+<ContentList>
+    {(await getCollection('archive'))
+        .sort((a, b) => b.data.date - a.data.date)
+        .map((article) => (
+            <ArticleCard
+                title={article.data.title}
+                summary={article.data.summary}
+                id={article.data.id}
+                date={article.data.date}
+                archive={true}
+            />
+        ))}
+</ContentList>
