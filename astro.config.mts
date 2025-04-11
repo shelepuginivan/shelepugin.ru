@@ -8,10 +8,15 @@ import pagefind from 'astro-pagefind'
 // Vite plugins.
 import tailwindcss from '@tailwindcss/vite'
 
+// Custom languages.
+import gotmplSyntax from './langs/gotmpl.tmLanguage.json?raw'
+
+import vue from '@astrojs/vue'
+
 export default defineConfig({
     site: 'https://shelepugin.ru',
 
-    integrations: [mdx(), icon(), pagefind()],
+    integrations: [mdx(), icon(), pagefind(), vue()],
 
     image: {
         service: passthroughImageService(),
@@ -20,6 +25,7 @@ export default defineConfig({
     markdown: {
         shikiConfig: {
             theme: 'ayu-dark',
+            langs: [JSON.parse(gotmplSyntax)],
         },
     },
 
