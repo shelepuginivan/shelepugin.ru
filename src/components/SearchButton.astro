@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<button
+    class="search-button flex items-center gap-1 cursor-pointer rounded bg-stone-800 py-2 px-3 text-sm hover:outline hover:outline-red-400"
+    title="Поиск по сайту"
+>
+    <Icon name="carbon:search" size="18px" class="inline-flex" />
+    <kbd id="shortcut" class="hidden" aria-keyshortcuts="Ctrl+K">Ctrl+K</kdb>
+</button>
+
+{
+	/**
+	 * This is intentionally inlined to avoid briefly showing an invalid shortcut.
+	 * Purposely using the deprecated `navigator.platform` property to detect Apple devices, as the
+	 * user agent is spoofed by some browsers when opening the devtools.
+	 */
+}
+<script is:inline>
+	(() => {
+        const shortcut = document.getElementById('shortcut');
+
+		if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = 'Command+K';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+
+        shortcut.classList.remove('hidden')
+	})();
+</script>
