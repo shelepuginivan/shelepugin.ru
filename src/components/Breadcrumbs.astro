@@ -15,10 +15,17 @@ const { items } = Astro.props
         itemscope 
         itemtype="https://schema.org/BreadcrumbList"
     >
-        <li class="list-none">
-            <a href="/">
-                <Icon name="carbon:home" size="16px"/>
+        <li 
+            class="list-none"
+            itemscope
+            itemprop="itemListElement"
+            itemtype="https://schema.org/ListItem"
+        >
+            <a href="/" aria-label="Главная страница" itemprop="item">
+                <Icon name="carbon:home" size="16px" />
             </a>
+            <meta itemprop="name" content="Главная страница" />
+            <meta itemprop="position" content="1" />
         </li>
         {items.map((item, index) => (
             <BreadcrumbsItem label={item.label} href={item.href} position={index+2} />
