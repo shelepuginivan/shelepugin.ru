@@ -19,7 +19,7 @@ export default defineConfig({
 
     markdown: {
         shikiConfig: {
-            theme: 'gruvbox-dark-soft',
+            theme: 'ayu-dark',
         },
     },
 
