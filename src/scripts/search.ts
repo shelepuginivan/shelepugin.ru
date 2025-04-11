@@ -37,7 +37,12 @@ Array.from(document.getElementsByClassName('search-button')).forEach(
 )
 
 document.addEventListener('keydown', (event) => {
-    if ((event.ctrlKey && event.code === 'KeyK') || event.code === 'Slash') {
+    if (event.code === 'Slash') {
+        event.preventDefault()
+        return toggleModal()
+    }
+
+    if ((event.ctrlKey && event.metaKey) || event.code === 'KeyK') {
         event.preventDefault()
         return toggleModal()
     }
