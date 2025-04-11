@@ -9,6 +9,8 @@ import pagefind from 'astro-pagefind'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+    site: 'https://shelepugin.ru',
+
     integrations: [mdx(), icon(), pagefind()],
 
     image: {
