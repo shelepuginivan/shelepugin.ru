@@ -1,11 +1,13 @@
 ---
 import { Image } from 'astro:assets'
 
-const { src, alt } = Astro.props
+const { src, alt, outline = false } = Astro.props
+
+const imageClass = `max-w-4xl rounded-lg ${outline ? 'outline' : ''}`
 ---
 
 <figure class="flex flex-col items-center">
-    <Image class="max-w-4xl rounded" src={src} alt={alt} />
+    <Image class={imageClass} src={src} alt={alt} />
     <figcaption class="text-center">
         <slot />
     </figcaption>
