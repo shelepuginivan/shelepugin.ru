@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 
-import Layout from '@layouts/Layout.astro'
+import Project from '@layouts/Project.astro'
 
 export async function getStaticPaths() {
     const posts = await getCollection('projects');
@@ -15,6 +15,6 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Layout frontmatter={project.data}>
+<Project frontmatter={project.data}>
     <Content />
-</Layout>
+</Project>

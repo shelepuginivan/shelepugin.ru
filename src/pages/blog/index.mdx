@@ -5,6 +5,14 @@ title: Блог
 
 import { getCollection } from 'astro:content'
 import ArticleCard from '@components/ArticleCard.astro'
+import Breadcrumbs from '@components/Breadcrumbs.astro'
+
+
+<Breadcrumbs
+    items={[
+        { label: 'Блог', href: '/blog' },
+    ]}
+/>
 
 # Блог
 

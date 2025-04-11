@@ -4,7 +4,15 @@ title: Проекты
 ---
 
 import { getCollection } from 'astro:content'
+import Breadcrumbs from '@components/Breadcrumbs.astro'
 import ProjectCard from '@components/ProjectCard.astro'
+
+
+<Breadcrumbs
+    items={[
+        { label: 'Проекты', href: '/projects' },
+    ]}
+/>
 
 # Проекты
 

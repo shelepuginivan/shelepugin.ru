@@ -5,6 +5,14 @@ title: Архив
 
 import { getCollection } from 'astro:content'
 import ArticleCard from '@components/ArticleCard.astro'
+import Breadcrumbs from '@components/Breadcrumbs.astro'
+
+
+<Breadcrumbs
+    items={[
+        { label: 'Архив', href: '/archive' },
+    ]}
+/>
 
 # Архив
 

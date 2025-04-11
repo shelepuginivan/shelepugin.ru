@@ -3,6 +3,7 @@ import '../styles/global.css'
 import '../styles/markdown.css'
 
 import ArticleInfo from '@components/ArticleInfo.astro'
+import Breadcrumbs from '@components/Breadcrumbs.astro'
 import Footer from '@components/Footer.astro'
 import Header from '@components/Header.astro'
 import Search from '@components/Search.astro'
@@ -20,6 +21,12 @@ const { frontmatter } = Astro.props
     <body class='bg-stone-900 flex flex-col h-screen text-stone-50'>
         <Header />
         <main class='mb-auto mx-auto w-full max-w-7xl p-8 pt-32 pb-48 prose prose-stone prose-invert prose-xl' data-pagefind-body>
+            <Breadcrumbs
+                items={[
+                    { label: 'Блог', href: '/blog' },
+                    { label: frontmatter.title, href: `/blog/${frontmatter.id}` },
+                ]}
+            />
             <h1>{frontmatter.title}</h1>
             <ArticleInfo
                 date={frontmatter.date}
