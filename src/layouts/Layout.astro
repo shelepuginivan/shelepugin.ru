@@ -14,6 +14,15 @@ const { frontmatter } = Astro.props
     <head>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width' />
+        <meta name='description' content='Добро пожаловать на мой сайт!' />
+        <meta name='author' content='Иван Шелепугин' />
+        <link rel='icon' type='image/png' href='/favicon.png' />
+        <link
+            rel='alternate'
+            type='application/rss+xml'
+            title='Блог Ивана Шелепугина'
+            href='/feed.xml'
+        />
         <title>{frontmatter.title} | Иван Шелепугин</title>
     </head>
     <body class='bg-stone-900 flex flex-col h-screen text-stone-50'>

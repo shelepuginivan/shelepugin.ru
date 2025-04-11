@@ -8,6 +8,8 @@ import Footer from '@components/Footer.astro'
 import Header from '@components/Header.astro'
 import Search from '@components/Search.astro'
 
+import { ogDate, ogImage, ogTitle, ogURL } from '@utils/seo'
+
 const { frontmatter } = Astro.props
 ---
 
@@ -16,6 +18,27 @@ const { frontmatter } = Astro.props
     <head>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width' />
+        <meta name='description' content={frontmatter.summary} />
+        <meta name='author' content='Иван Шелепугин' />
+        <link rel='icon' type='image/png' href='/favicon.png' />
+        <link
+            rel='alternate'
+            type='application/rss+xml'
+            title='Блог Ивана Шелепугина'
+            href='/feed.xml'
+        />
+
+        {/* Open Graph */}
+        <meta property='og:title' content={ogTitle(frontmatter.title)} />
+        <meta property='og:description' content={frontmatter.summary} />
+        <meta property='og:url' content={ogURL('blog', frontmatter.id)} />
+        <meta property='og:image' content={ogImage('blog', frontmatter.id)} />
+        <meta property='og:image:type' content='image/png' />
+        <meta property='og:image:alt' content={frontmatter.title} />
+        <meta property='og:type' content='article' />
+        <meta property='article:author' content='Иван Шелепугин' />
+        <meta property='article:published_time' content={ogDate(frontmatter.date)} />
+
         <title>{frontmatter.title} | Иван Шелепугин</title>
     </head>
     <body class='bg-stone-900 flex flex-col h-screen text-stone-50'>
