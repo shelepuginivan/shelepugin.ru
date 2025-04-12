@@ -18,7 +18,7 @@ const { label, href, position } = Astro.props
         itemprop="itemListElement"
         itemtype="https://schema.org/ListItem"
     >
-        <a class="no-underline text-base text-stone-200" href={href} itemprop="item">
+        <a class="no-underline text-base max-sm:text-sm text-stone-200" href={href} itemprop="item">
             <span itemprop="name">{label}</span>
         </a>
         <meta itemprop="position" content={position} />
