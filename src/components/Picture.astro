@@ -2,13 +2,24 @@
 import { Image } from 'astro:assets'
 
 const { src, alt, outline = false } = Astro.props
-
-const imageClass = `max-w-4xl rounded-lg ${outline ? 'outline' : ''}`
 ---
 
 <figure class="flex flex-col items-center">
-    <Image class={imageClass} src={src} alt={alt} />
+    <Image class="img" src={src} alt={alt} data-outline={outline} />
     <figcaption class="text-center">
         <slot />
     </figcaption>
 </figure>
+
+<style>
+    .img {
+        border-radius: var(--radius-lg);
+        max-width: var(--container-4xl);
+        width: 100%;
+        height: auto;
+    }
+
+    .img[data-outline='true'] {
+        outline: 1px solid white;
+    }
+</style>
