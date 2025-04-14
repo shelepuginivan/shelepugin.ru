@@ -51,11 +51,11 @@ const buttonLabel = (times: number): string => {
 </template>
 
 <style>
-    .demo-button.completed {
-        background-color: #4ade80;
-    }
+.demo-button.completed {
+    background-color: #4ade80;
+}
 
-    .demo-button.completed:hover {
-        background-color: #22c55e;
-    }
+.demo-button.completed:hover {
+    background-color: #22c55e;
+}
 </style>
