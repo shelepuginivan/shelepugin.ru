@@ -194,7 +194,7 @@ func (s *Service) Add(a, b int) (int, *dbus.Error) {
 }
 ```
 
-Обратите внимание на структуру `Service` именно она реализует интерфейс. В
+Обратите внимание на структуру `Service` -- именно она реализует интерфейс. В
 частности, у неё есть метод `Add`, который складывает два числа. Для
 наглядности, этот метод также выводит информацию о вызове.
 
@@ -204,26 +204,26 @@ func (s *Service) Add(a, b int) (int, *dbus.Error) {
 ```go
 func main() {
     // 1. Получение соединения с сессионной шиной D-Bus.
-	conn, err := dbus.SessionBus()
-	if err != nil {
-		panic(err)
-	}
-
+    conn, err := dbus.SessionBus()
+    if err != nil {
+    	panic(err)
+    }
+    
     // 2. Запрос информации об интерфейсе.
-	reply, err := conn.RequestName(ServiceName, dbus.NameFlagDoNotQueue)
-	if err != nil {
-		panic(err)
-	}
-	if reply != dbus.RequestNameReplyPrimaryOwner {
-		panic("Этот интерфейс уже занят")
-	}
-
+    reply, err := conn.RequestName(ServiceName, dbus.NameFlagDoNotQueue)
+    if err != nil {
+    	panic(err)
+    }
+    if reply != dbus.RequestNameReplyPrimaryOwner {
+    	panic("Этот интерфейс уже занят")
+    }
+    
     // 3. Экспорт сервиса в D-Bus.
-	srv := &Service{}
-	conn.Export(srv, ServicePath, ServiceName)
-
+    srv := &Service{}
+    conn.Export(srv, ServicePath, ServiceName)
+    
     // 4. Ожидание вызовов.
-	select {}
+    select {}
 }
 ```
 
