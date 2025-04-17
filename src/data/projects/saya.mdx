@@ -1,0 +1,79 @@
+---
+id: saya
+title: Saya
+description: Виджеты и окружение для Wayland-композиторов
+
+status: wip
+
+order: 0
+
+stack:
+    - Go
+    - GTK3
+    - gtk-layer-shell
+---
+
+import Ext from '@components/ExternalLink.astro'
+import Picture from '@components/Picture.astro'
+import Spoiler from '@components/Spoiler.astro'
+
+import bar from '@assets/projects/saya/bar.webp'
+import launch from '@assets/projects/saya/launch.webp'
+import powermenu from '@assets/projects/saya/powermenu.webp'
+
+# Saya
+
+В данный момент я работаю над своим окружением рабочего стола для Linux, которое
+работает с любым Wayland-композитором, поддерживающим протокол
+<Ext href="https://wayland.app/protocols/wlr-layer-shell-unstable-v1">Layer Shell</Ext>.
+
+Проект сильно вдохновлён
+<Ext href="https://github.com/elkowar/eww">Eww</Ext> и
+<Ext href="https://github.com/Fabric-Development/fabric">Fabric</Ext>.
+Я хотел разобраться, как работают подобные системы, и в итоге решил написать
+своё решение, уже на Go. Окружение всё ещё находится в активной разработке.
+Исходный код и исполняемые файлы будут доступны позже.
+
+На данный момент реализованы следующие части окружения:
+
+- **Меню питания** -- управление питанием
+- **Док (dock)** -- меню, вдохновлённое macOS, с возможностью настройки
+  пользовательских действий
+- **Меню запуска приложений** -- позволяет запускать приложения при помощи
+  поиска
+- **Сервер уведомлений** -- реализация демона уведомлений
+- **Панель** -- располагается с краю экрана и отображает информацию о системе
+- **Компоненты** -- полностью настраиваемые пользовательские виджеты
+
+Запланированный функционал:
+
+- **Экран блокировки**  
+  Требуется написать связки Go для библиотеки
+  <Ext href="https://github.com/Cu3PO42/gtk-session-lock">`gtk-session-lock`</Ext>,
+  которая реализует протокол
+  <Ext href="https://wayland.app/protocols/ext-session-lock-v1">`ext-session-lock`</Ext>
+  в GTK.
+
+- **Экран входа в систему**
+
+Все программы настраиваются в конфигурационных YAML-файлах, их внешний вид можно
+кастомизировать при помощи CSS. Для _компонентов_ используется встроенный
+скриптовый язык Tengo.
+
+Откуда взялось название «Saya»? <Spoiler>Я назвал этот проект в честь своей кошки :)</Spoiler>
+
+## Демонстрация
+
+Здесь представлены некоторые части окружения рабочего стола.
+
+<Picture src={bar} alt="Панель">
+    Панель (конфигурация и стили по умолчанию)
+</Picture>
+
+<Picture src={launch} alt="Меню запуска приложений">
+    Меню запуска приложений (конфигурация и стили по умолчанию)
+</Picture>
+
+<Picture src={powermenu} alt="Меню питания">
+    Меню питания (конфигурация и стили по умолчанию)
+</Picture>
