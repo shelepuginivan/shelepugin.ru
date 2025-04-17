@@ -16,6 +16,9 @@ stack:
 
 import AsideMore from '@components/AsideMore.astro'
 import ExternalLink from '@components/ExternalLink.astro'
+import Picture from '@components/Picture.astro'
+
+import demo from '@assets/projects/hakutest/demo.webp'
 
 # Hakutest
 
@@ -36,6 +39,10 @@ Hakutest для любой задачи, требующей автоматиче
   Linux.
 - **Свобода**: Hakutest -- бесплатное и свободное ПО с открытым исходным
   кодом.
+
+<Picture src={demo} alt="Страница теста в Hakutest">
+  Страница теста в Hakutest. Текст задания поддерживает язык разметки Markdown.
+</Picture>
 
 19 августа 2024 я выпустил версию 1.0.0 -- это первая стабильная версия
 платформы. Существующие возможности были обновлены и улучшены, а также
