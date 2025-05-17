@@ -39,8 +39,8 @@ import powermenu from '@assets/projects/saya/powermenu.webp'
 - **Меню питания** -- управление питанием
 - **Док (dock)** -- меню, вдохновлённое macOS, с возможностью настройки
   пользовательских действий
-- **Меню запуска приложений** -- позволяет запускать приложения при помощи
-  поиска
+- **Меню запуска** -- позволяет запускать приложения, искать в Интернете и
+  выполнять многие другие действия при помощи поиска
 - **Сервер уведомлений** -- реализация демона уведомлений
 - **Панель** -- располагается с краю экрана и отображает информацию о системе
 - **Компоненты** -- полностью настраиваемые пользовательские виджеты
@@ -48,10 +48,12 @@ import powermenu from '@assets/projects/saya/powermenu.webp'
 Запланированный функционал:
 
 - **Экран блокировки**  
-  Требуется написать связки Go для библиотеки
+  На данный момент реализованы 
+  <Ext href="https://github.com/shelepuginivan/gotk3-session-lock">привязки</Ext>
+  (bindings) Go для библиотеки
   <Ext href="https://github.com/Cu3PO42/gtk-session-lock">`gtk-session-lock`</Ext>,
   которая реализует протокол
-  <Ext href="https://wayland.app/protocols/ext-session-lock-v1">`ext-session-lock`</Ext>
+  <Ext href="https://wayland.app/protocols/ext-session-lock-v1">`ext-session-lock-v1`</Ext>
   в GTK.
 
 - **Экран входа в систему**
