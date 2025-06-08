@@ -42,7 +42,7 @@ document.addEventListener('keydown', (event) => {
         return toggleModal()
     }
 
-    if ((event.ctrlKey && event.metaKey) || event.code === 'KeyK') {
+    if ((event.ctrlKey || event.metaKey) && event.code === 'KeyK') {
         event.preventDefault()
         return toggleModal()
     }
