@@ -2,6 +2,7 @@
 import '../styles/global.css'
 import '../styles/markdown.css'
 
+import Announcement from '@components/Announcement.astro'
 import Footer from '@components/Footer.astro'
 import Header from '@components/Header.astro'
 import Search from '@components/Search.astro'
@@ -26,6 +27,15 @@ const { frontmatter } = Astro.props
         <title>{frontmatter.title} | Иван Шелепугин</title>
     </head>
     <body class='bg-stone-900 flex flex-col h-screen text-stone-50'>
+        <Announcement id="1" background="#67caf6">
+            <a
+                class="underline"
+                href="https://cdn.shelepugin.ru/i/png/cirno-day-2025.png"
+                download
+            >
+                <b>Поздравляю с днём Чирно 09.09.2025!</b>
+            </a>
+        </Announcement>
         <Header />
         <main class='mb-auto mx-auto w-full max-w-7xl p-8 pt-32 pb-48 prose prose-stone prose-invert prose-xl' data-pagefind-body>
             <slot />
