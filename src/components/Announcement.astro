@@ -1,0 +1,55 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import { textColor } from '@utils/colors'
+
+interface Props {
+    id: number
+    background?: string
+}
+
+const { id, background = "#f87171"} = Astro.props;
+---
+
+<div
+    id="announcement"
+    class="hidden relative flex items-center justify-center p-2"
+    style={`background: ${background}; color: ${textColor(background)}`}
+    data-id={id}
+>
+    <slot />
+    <button id="announcement-close" class="absolute right-4 cursor-pointer">
+        <Icon
+            name="carbon:close-large"
+            size="18px"
+            aria-label="Закрыть объявление"
+        />
+    </button>
+</div>
+
+<script is:inline>
+    const announcement = document.getElementById('announcement')
+    const announcementClose = document.getElementById('announcement-close')
+    const id = announcement.dataset.id
+
+    const announcementKey = (id) => {
+        return `announcement_${id}`
+    }
+
+    const closeBanner = () => {
+        localStorage.setItem(announcementKey(id), 'closed');
+        announcement.classList.add('hidden')
+    }
+        
+    let showBanner = true;
+    
+    if (window) {
+        showBanner = localStorage.getItem(announcementKey(id)) !== 'closed';
+    }
+    
+    if (showBanner) {
+        announcement.classList.remove('hidden')
+    }
+
+    announcementClose.addEventListener('click', closeBanner)
+</script>
