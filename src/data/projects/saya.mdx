@@ -31,8 +31,8 @@ import powermenu from '@assets/projects/saya/powermenu.webp'
 <Ext href="https://github.com/elkowar/eww">Eww</Ext> и
 <Ext href="https://github.com/Fabric-Development/fabric">Fabric</Ext>.
 Я хотел разобраться, как работают подобные системы, и в итоге решил написать
-своё решение, уже на Go. Окружение всё ещё находится в активной разработке.
-Исходный код, исполняемые файлы и документация будут доступны позже.
+свою реализацию. Окружение всё ещё находится в активной разработке. Исходный
+код, исполняемые файлы и документация будут доступны позже.
 
 На данный момент реализованы следующие части окружения:
 
@@ -41,20 +41,16 @@ import powermenu from '@assets/projects/saya/powermenu.webp'
   пользовательских действий
 - **Меню запуска** -- позволяет запускать приложения, искать в Интернете и
   выполнять многие другие действия при помощи поиска
-- **Сервер уведомлений** -- реализация демона уведомлений
+- **Сервер уведомлений** -- реализация спецификации
+  <Ext href="https://specifications.freedesktop.org/notification-spec/latest/">Desktop Notifications</Ext>
+  для отображения уведомлений рабочего стола
 - **Панель** -- располагается с краю экрана и отображает информацию о системе
 - **Компоненты** -- среда исполнения пользовательских виджетов с поддержкой
   реактивности
 - **Экран блокировки** -- блокирует Wayland-сессию и отображает информацию при
   помощи модулей
-
-  Для экрана блокировки были разработаны
-  <Ext href="https://github.com/shelepuginivan/gotk3-session-lock">привязки</Ext>
-  (bindings) Go для библиотеки
-  <Ext href="https://github.com/Cu3PO42/gtk-session-lock">`gtk-session-lock`</Ext>,
-  которая реализует протокол
-  <Ext href="https://wayland.app/protocols/ext-session-lock-v1">`ext-session-lock-v1`</Ext>
-  в GTK.
+- **Менеджер дисплеев** -- экран входа в систему на основе
+  <Ext href="https://sr.ht/~kennylevinsen/greetd/">`greetd`</Ext>
 
 Все программы настраиваются в конфигурационных YAML-файлах, их внешний вид
 можно кастомизировать при помощи CSS. Для _меню запуска_ и _компонентов_
@@ -65,6 +61,29 @@ import powermenu from '@assets/projects/saya/powermenu.webp'
 Go.
 
 Откуда взялось название «Saya»? <Spoiler>Я назвал этот проект в честь своей кошки :)</Spoiler>
+
+## Дополнительные библиотеки
+
+В рамках работы над окружением я провел исследования механизмов взаимодействия
+компонентов рабочего стола, существующих протоколов и спецификаций, и
+разработал ряд библиотек. Они реализуют функционал, который может быть
+использован и за пределами проекта. Ниже перечислены некоторые из них:
+
+- <Ext href="https://github.com/shelepuginivan/gotk3-session-lock">`gotk3-session-lock`</Ext> --
+  привязки (bindings) Go для библиотеки
+  <Ext href="https://github.com/Cu3PO42/gtk-session-lock">`gtk-session-lock`</Ext>,
+  которая реализует протокол
+  <Ext href="https://wayland.app/protocols/ext-session-lock-v1">`ext-session-lock-v1`</Ext>
+  в GTK
+
+- <Ext href="https://github.com/shelepuginivan/systray">`systray`</Ext> --
+  реализация спецификации
+  <Ext href="https://www.freedesktop.org/wiki/Specifications/StatusNotifierItem/">StatusNotifierItem</Ext>,
+  не зависящая от графических тулкитов
+
+- <Ext href="https://github.com/shelepuginivan/gotk3-vte">`gotk3-vte`</Ext> --
+  привязки Go для библиотеки <Ext href="https://gitlab.gnome.org/GNOME/vte/">VTE</Ext>,
+  которая позволяет отображать виртуальные терминалы как виджеты GTK
 
 ## Демонстрация
 
