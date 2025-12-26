@@ -22,8 +22,8 @@ import { Icon } from 'astro-icon/components'
 
     Array.from(document.getElementsByClassName('search-shortcut')).forEach(shortcut => {
 		if (isAppleDevice) {
-			platformKey.textContent = 'Command+K';
-			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+			shortcut.textContent = 'Cmd+K';
+			shortcut.setAttribute('aria-keyshortcuts', 'Meta+K');
 		}
 
         shortcut.classList.remove('hidden')
