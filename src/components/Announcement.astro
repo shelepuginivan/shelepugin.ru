@@ -1,20 +1,18 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-import { textColor } from '@utils/colors'
-
 interface Props {
     id: number
     background?: string
 }
 
-const { id, background = "#f87171"} = Astro.props;
+const { id, style = "background: #f87171"} = Astro.props;
 ---
 
 <div
     id="announcement"
     class="hidden relative flex items-center justify-center p-2"
-    style={`background: ${background}; color: ${textColor(background)}`}
+    style={style}
     data-id={id}
 >
     <slot />
