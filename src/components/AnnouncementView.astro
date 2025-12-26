@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from 'astro:content'
+
+import Announcement from '@components/Announcement.astro'
+import Show from '@components/Show.astro'
+import { activeAnnouncement } from '@utils/announcements'
+
+const announcement = await activeAnnouncement()
+const AnnouncementContent = announcement
+    ? await render(announcement).then((res) => res.Content)
+    : null
+---
+
+{announcement &&
+    <Announcement id={announcement.id} style={announcement.data.style}>
+        <AnnouncementContent />
+    </Announcement>
+}
